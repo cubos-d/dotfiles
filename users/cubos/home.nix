@@ -29,7 +29,8 @@
     config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/wofi/config";
   xdg.configFile."wofi/style.css".source = 
     config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/wofi/style.css";
-
+  xdg.configFile."starship.toml".source = 
+    config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/starship/starship.toml";
 
   # User specific packages go here instead of configuration.nix
   fonts.fontconfig.enable = true;
@@ -47,6 +48,7 @@
     wlogout
     nerd-fonts.comic-shanns-mono
     eza
+    starship
   ];
   
 }
