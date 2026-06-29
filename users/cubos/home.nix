@@ -21,5 +21,17 @@
   home.packages = with pkgs; [
     # Any personal apps can live here safely separated from root
     btop
+    wezterm
+    wofi
+    waybar
+    wl-clipboard
+    hyprpaper
+    fastfetch
+    htop
+    starship
+  ];
+  
+  fonts.packages = with pkgs; [
+    nerd-fonts.comic-shanns-mono
   ];
 }
