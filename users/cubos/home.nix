@@ -11,6 +11,8 @@
   # Imports user-specific modular apps
   imports = [
   ];
+  
+  xdg.configFile."hypr/hyprland.lua".source = ./hyprland.lua;
 
   # User specific packages go here instead of configuration.nix
   home.packages = with pkgs; [
