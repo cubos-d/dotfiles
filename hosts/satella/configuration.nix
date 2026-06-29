@@ -38,7 +38,10 @@
       configurationLimit = 15;
     };
   };
-
+  
+  boot.kernelParams = [
+    "video=HDMI-A-1:e"
+  ];
   networking.hostName = "satella"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
