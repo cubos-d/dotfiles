@@ -12,12 +12,4 @@ config.default_cursor_style = 'BlinkingBar' -- Options: SteadyBar, BlinkingBar
 config.window_background_opacity = 0.75 -- 0.0 (transparent) to 1.0 (opaque)
 config.macos_window_background_blur = 20 -- Optional: Applies blur on systems that support it
 
--- Clean, borderless window padding (optional but great for tiling layouts)
-config.window_padding = {
-  left = 8,
-  right = 8,
-  top = 8,
-  bottom = 8,
-}
-
 return config
