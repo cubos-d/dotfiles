@@ -31,6 +31,8 @@
     config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/wofi/style.css";
   xdg.configFile."starship.toml".source = 
     config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/starship/starship.toml";
+  xdg.configFile."wezterm/wezterm.lua".source = 
+    config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/wezterm/wezterm.lua";
 
   # User specific packages go here instead of configuration.nix
   fonts.fontconfig.enable = true;

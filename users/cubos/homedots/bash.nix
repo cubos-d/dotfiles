@@ -18,8 +18,7 @@
       export HSA_ENABLE_SDMA=0
       export ROCM_ENABLE_LOGGING=1
       export AMD_SERIALIZE_KERNEL=3
-      
-      # Your custom functions or initialization scripts go here safely...
+      eval "$(starship init bash)"
     '';
   };
 }
