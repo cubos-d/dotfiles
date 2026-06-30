@@ -37,7 +37,6 @@
   # User specific packages go here instead of configuration.nix
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
-    # Any personal apps can live here safely separated from root
     btop
     wezterm
     wofi
