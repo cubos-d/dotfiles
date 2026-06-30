@@ -38,7 +38,7 @@
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     python314
-    python314.numpy
+    python314Packages.numpy
     btop
     wezterm
     wofi
