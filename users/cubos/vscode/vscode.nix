@@ -8,7 +8,7 @@
       bbenoist.nix
       ms-python.python
       amodio.amethyst-theme
-      continue.continue
+      cinputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace.amodio.amethyst-theme
     ];
     userSettings = {
       "workbench.colorTheme" = "Amethyst Dark (Higher Contrast)";
