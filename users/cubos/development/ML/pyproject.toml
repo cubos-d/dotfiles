@@ -1,0 +1,44 @@
+[project]
+name = "Cubos2.0"
+version = "0.1.0"
+description = "Shared env for multiple projects"
+requires-python = ">=3.14"
+dependencies = [
+]
+
+[tool.uv.workspace]
+members = [
+    "ML_study"
+]
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-rocm", marker = "sys_platform == 'linux'" },
+]
+torchvision = [
+  { index = "pytorch-rocm", marker = "sys_platform == 'linux'" },
+]
+
+torchtext = [
+        {index = "pytorch-rocm", marker = "sys_platform == 'linux'" }
+]
+
+triton-rocm = [
+  { index = "pytorch-rocm", marker = "sys_platform == 'linux'" },
+]
+
+pytorch-triton-rocm = [
+  { index = "pytorch-rocm", marker = "sys_platform == 'linux'" },
+]
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"
+
+[[tool.uv.index]]
+name = "pytorch-rocm"
+url = "https://download.pytorch.org/whl/rocm7.2"
+
+[tool.uv]
+index-strategy = "unsafe-best-match"
+prerelease = "allow"

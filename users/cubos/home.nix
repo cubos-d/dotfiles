@@ -12,8 +12,14 @@
   imports = [
     ./homedots/bash.nix
     ./homedots/python-stuff.nix
+    ./vscode/vscode.nix
   ];
-  
+  home.file = {
+    # This creates the directory structure and the symlink automatically
+    "Cubos3.0/ML_projects/pyproject.toml" = {
+      source = ./development/ML/pyproject.toml;
+    };
+  }; 
   wayland.windowManager.hyprland = {
     enable = true;
   };

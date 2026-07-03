@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./git.nix
       ./amdgpu.nix
       ./uv.nix
       ./gc.nix
@@ -45,7 +46,6 @@
   boot.kernelParams = [
     "video=HDMI-A-1:e"
   ];
-  programs.nix-ld.enable = true;
   networking.hostName = "satella"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
@@ -113,7 +113,6 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    git
     rocmPackages.rocminfo
     rocmPackages.rocm-smi
   ];
