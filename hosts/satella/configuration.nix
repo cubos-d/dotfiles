@@ -45,6 +45,7 @@
   boot.kernelParams = [
     "video=HDMI-A-1:e"
   ];
+  programs.nix-ld.enable = true;
   networking.hostName = "satella"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
