@@ -7,7 +7,6 @@
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
       ms-python.python
-      amodio.amethyst-theme
       cinputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace.amodio.amethyst-theme
     ];
     userSettings = {
