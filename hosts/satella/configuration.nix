@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./amdgpu.nix
       ./uv.nix
+      ./gc.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
