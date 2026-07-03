@@ -7,7 +7,6 @@
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
       ms-python.python
-      inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace.amodio.amethyst-theme
     ];
     userSettings = {
       "workbench.colorTheme" = "Amethyst Dark (Higher Contrast)";

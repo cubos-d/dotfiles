@@ -10,7 +10,6 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs"; # Forces home-manager to match system packages
     };
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -25,7 +24,6 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.cubos = import ./users/cubos/home.nix;
           }
         ];
