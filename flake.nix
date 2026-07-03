@@ -25,7 +25,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.cubos = import ./users/cubos/home.nix;
+            home-manager.users.cubos = import ./users/cubos/home.nix { inherit inputs; };
           }
         ];
       };

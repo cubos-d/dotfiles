@@ -7,7 +7,10 @@
 
   # Let Home Manager manage itself (necessary)
   programs.home-manager.enable = true;
-
+  home-manager.users.cubos = {
+    imports = [ ./users/cubos/home.nix ];
+    extraSpecialArgs = { inherit inputs; }; 
+  };
   # Imports user-specific modular apps
   imports = [
     ./homedots/bash.nix
