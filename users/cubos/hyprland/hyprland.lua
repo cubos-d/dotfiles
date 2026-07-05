@@ -123,9 +123,9 @@ hl.config({
             enabled   = true,
             size      = 3,
             passes    = 2,
-	    new_optimizations = true,
+	        new_optimizations = true,
             vibrancy  = 0.1696,
-	    vibrancy_darkness = 1,
+	        vibrancy_darkness = 1,
         },
 
 	glow = {
