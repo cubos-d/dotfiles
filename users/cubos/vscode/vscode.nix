@@ -5,7 +5,7 @@
     enable = true;
     # This makes it easy to add extensions without manual installation
     profiles = {
-      default = {
+      cubos = {
         extensions = with pkgs; [
           vscode-extensions.bbenoist.nix
           vscode-extensions.ms-python.python
@@ -39,7 +39,22 @@
           "terminal.integrated.fontSize" = 14;
           "editor.tabSize" = 4;
           "editor.insertSpaces" = true;
+          "terminal.integrated.cursorStyle"= "line";
+          "window.newWindowProfile" = "cubos";
         };
+        keybindings = [
+          {
+            key = "ctrl+down";
+            command = "workbench.action.terminal.focus";
+            when = "editorTextFocus";
+          }
+          
+          {
+            key = "ctrl+up";
+            command = "workbench.action.focusActiveEditorGroup";
+            when = "!editorTextFocus";
+          }
+        ];
       };
     };
   };
