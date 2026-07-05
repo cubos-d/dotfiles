@@ -27,6 +27,11 @@
   }; 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
+    ];
+    xwayland.enable = true;
   };
   # Change this line in your home.nix to reference the absolute physical path
   xdg.configFile."hypr/hyprland.lua".source = 
