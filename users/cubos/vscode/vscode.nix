@@ -7,7 +7,7 @@
     profiles = {
       cubos = {
         extensions = with pkgs.vscode-extensions; [
-          bbenoist.nix
+          jnoortheen.nix-ide
           ms-python.python
           ms-python.vscode-pylance
           ms-vscode.cmake-tools
