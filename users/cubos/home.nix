@@ -21,8 +21,8 @@
   }; 
   home.file = {
     # This creates the directory structure and the symlink automatically
-    ".continue/config.yml" = {
-      source = ./vscode/continue/config.yml;
+    ".continue/config.yaml" = {
+      source = ./vscode/continue/config.yaml;
     };
   }; 
   wayland.windowManager.hyprland = {

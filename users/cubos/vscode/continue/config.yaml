@@ -1,0 +1,13 @@
+name: Local Config
+version: 1.0.0
+schema: v1
+models:
+  - name: "Ministral"
+    provider: ollama
+    model: ministral-3:latest
+    apiBase: http://localhost:11434
+
+  - name: "Gemma Light"
+    provider: ollama
+    model: gemma4:e2b
+    apiBase: http://localhost:11434
