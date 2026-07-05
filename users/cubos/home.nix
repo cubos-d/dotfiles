@@ -19,6 +19,12 @@
       source = ./development/ML/pyproject.toml;
     };
   }; 
+  home.file = {
+    # This creates the directory structure and the symlink automatically
+    ".continue/config.yml" = {
+      source = ./vscode/continue/config.yml;
+    };
+  }; 
   wayland.windowManager.hyprland = {
     enable = true;
   };
