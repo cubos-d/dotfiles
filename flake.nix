@@ -5,12 +5,6 @@
     # System base tracked on the stable branch (adjust version if yours differs)
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     hyprland.url = "github:hyprwm/Hyprland";
-
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-    # Home Manager tracking the matching stable branch
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs"; # Forces home-manager to match system packages

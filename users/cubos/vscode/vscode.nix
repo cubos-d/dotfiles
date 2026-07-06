@@ -1,11 +1,27 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
-  programs.vscode = {
+  programs.vscodium = {
     enable = true;
-    # This makes it easy to add extensions without manual installation
+    package = pkgs.vscodium.fhsWithPackages (ps: with ps; [
+      # --- Your Original Additions ---
+      rustup
+      zlib
+      # --- C/C++ Developer Environment Tools ---
+      gcc            # Compilers for standard binary compilation
+      gnumake        # Base requirement for 'makefile-tools' extension
+      cmake          # Base requirement for 'cmake-tools' extension
+      glibc          # Critical header references for C library compilation
+      # --- Python & General Language Tooling ---
+      python3        # Underlying python execution environment
+      stdenv.cc.cc   # Essential libstdc++.so.6 references for Pylance/Rust-analyzer
+      # --- Graphic Tooling / Vibrancy Support ---
+      mesa           # Handles hardware-accelerated rendering layers under Wayland/X11
+      libGL          # Graphics library access for Electron transparency layers
+      icu            # Text/Unicode layout parsing tools used by Electron extensions
+    ]);
     profiles = {
-      cubos = {
+      default = {
         extensions = with pkgs.vscode-extensions; [
           jnoortheen.nix-ide
           ms-python.python

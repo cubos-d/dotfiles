@@ -117,6 +117,7 @@
     wget
     rocmPackages.rocminfo
     rocmPackages.rocm-smi
+    vscodium.fhs
   ];
   
   nix.settings.experimental-features = ["nix-command" "flakes"];
