@@ -19,18 +19,13 @@
       source = ./development/ML/pyproject.toml;
     };
   }; 
-  home.file = {
-    # This creates the directory structure and the symlink automatically
-    ".continue/config.yaml" = {
-      source = ./vscode/continue/config.yaml;
-    };
-  }; 
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
-    ];
+    #plugins = [
+    #  inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
+      #inputs.hyprland-hyprglass.packages.${pkgs.stdenv.hostPlatform.system}.hyprglass
+    #];
     xwayland.enable = true;
   };
   # Change this line in your home.nix to reference the absolute physical path

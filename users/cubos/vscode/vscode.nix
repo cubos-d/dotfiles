@@ -1,11 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   programs.vscode = {
     enable = true;
     # This makes it easy to add extensions without manual installation
     profiles = {
-      cubos = {
+      default = {
         extensions = with pkgs.vscode-extensions; [
           jnoortheen.nix-ide
           ms-python.python
@@ -20,7 +20,6 @@
           ms-toolsai.vscode-jupyter-cell-tags
           ms-toolsai.vscode-jupyter-slideshow
           rust-lang.rust-analyzer
-          continue.continue
           davidanson.vscode-markdownlint
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
