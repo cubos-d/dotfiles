@@ -12,6 +12,8 @@
     ./homedots/bash.nix
     ./homedots/python-stuff.nix
     ./vscode/vscode.nix
+    ./gui_settings/gtk.nix
+    ./gui_settings/thunar.nix
   ];
   home.file = {
     # This creates the directory structure and the symlink automatically

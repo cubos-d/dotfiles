@@ -7,6 +7,7 @@
     shellAliases = {
       ls = "eza --group-directories-first --icons -lhg";
       cp = "cp --verbose";
+      code = "codium";
     };
 
     # Paste your large collection of custom prompts, exports, and scripts here
