@@ -15,6 +15,6 @@
 
   qt = {
     enable = true;
-    qt.platformTheme = "gtk";
+    platformTheme = "gtk";
   };
 }
