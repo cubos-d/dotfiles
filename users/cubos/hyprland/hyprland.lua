@@ -29,7 +29,7 @@ hl.monitor({
 
 -- Set programs that you use
 local terminal    = "wezterm"
-local fileManager = "dolphin"
+local fileManager = "thunar"
 local menu        = "wofi --show drun"
 
 
