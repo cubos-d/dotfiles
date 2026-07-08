@@ -108,6 +108,7 @@
     withUWSM = true;
     xwayland.enable = true;
   };
+  programs.dconf.enable = true;
   
   nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile.

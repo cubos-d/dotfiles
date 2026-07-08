@@ -1,8 +1,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-  programs.dconf.enable = true;
-
   gtk = {
     enable = true;
     theme = {
