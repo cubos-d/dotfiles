@@ -43,6 +43,7 @@
     nwg-look
     nwg-displays
     nwg-wrapper
+    file-roller
   ];
   
 }

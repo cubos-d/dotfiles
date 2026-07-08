@@ -9,7 +9,6 @@
     ];
   };
   # Archive manager
-  environment.systemPackages = with pkgs; [ file-roller ];
   # Fix for Thunar "Open Terminal Here"
   # Replace 'kitty' with the actual command of your terminal!
   /*
