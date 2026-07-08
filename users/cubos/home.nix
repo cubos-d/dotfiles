@@ -13,7 +13,6 @@
     ./homedots/python-stuff.nix
     ./vscode/vscode.nix
     ./gui_settings/gtk.nix
-    ./gui_settings/thunar.nix
     ./homedots/dot_links.nix
     ./homedots/homefiles.nix
   ];
