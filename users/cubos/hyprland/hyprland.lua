@@ -45,7 +45,8 @@ local menu        = "wofi --show drun"
 hl.on("hyprland.start", function () 
    --hl.exec_cmd(terminal)
    hl.exec_cmd("nm-applet")
-   hl.exec_cmd("waybar & hyprpaper")
+   hl.exec_cmd("waybar")
+   hl.exec_cmd("awww-daemon")
 end)
 
 
@@ -121,9 +122,10 @@ hl.config({
 
         blur = {
             enabled   = true,
-            size      = 3,
-            passes    = 2,
+            size      = 7, --3,
+            passes    = 3, --2,
 	        new_optimizations = true,
+            contrast = 1.5,
             vibrancy  = 0.1696,
 	        vibrancy_darkness = 1,
         },
@@ -380,4 +382,7 @@ hl.layer_rule({
   blur         = true,
   ignore_alpha = 0.5,
 })
-
+hl.window_rule({ match = { class = "thunar" }, opacity = "0.8 0.8"})
+hl.window_rule({ match = { class = "codium"}, opacity = "0.9 0.9" })
+hl.layer_rule({ match = {namespace = "thunar"}, blur = true})
+hl.layer_rule({ match = {namespace = "codium"}, blur = true})

@@ -117,6 +117,8 @@
       thunar-media-tags-plugin # Tagging & renaming feature for media files
     ];
   };
+  services.gvfs.enable = true;
+  services.tumbler.enable = true;
   
   nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile.

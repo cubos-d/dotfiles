@@ -12,7 +12,7 @@
     ./homedots/bash.nix
     ./homedots/python-stuff.nix
     ./vscode/vscode.nix
-    ./gui_settings/gtk.nix
+    ./homedots/gtk.nix
     ./homedots/dot_links.nix
     ./homedots/homefiles.nix
   ];
@@ -43,6 +43,9 @@
     nwg-displays
     nwg-wrapper
     file-roller
+    awww
+    yazi
+    mate.eom
   ];
   
 }
