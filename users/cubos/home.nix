@@ -45,7 +45,8 @@
     file-roller
     awww
     yazi
-    mate.eom
+    eom
+    vlc
   ];
   
 }

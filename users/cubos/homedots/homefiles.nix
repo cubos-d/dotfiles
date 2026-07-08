@@ -16,11 +16,11 @@
   home.file = {
     ".local/share/themes/.keep" = {
       text = "";
-    }
-  }
+    };
+  };
   home.file = {
     ".local/share/icons/.keep" = {
       text = "";
-    }
-  }
+    };
+  };
 }

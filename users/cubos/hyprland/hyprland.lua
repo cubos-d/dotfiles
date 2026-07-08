@@ -382,7 +382,7 @@ hl.layer_rule({
   blur         = true,
   ignore_alpha = 0.5,
 })
-hl.window_rule({ match = { class = "thunar" }, opacity = "0.8 0.8"})
+hl.window_rule({ match = { class = "thunar" }, opacity = "0.7 0.7"})
 hl.window_rule({ match = { class = "codium"}, opacity = "0.9 0.9" })
 hl.layer_rule({ match = {namespace = "thunar"}, blur = true})
 hl.layer_rule({ match = {namespace = "codium"}, blur = true})
