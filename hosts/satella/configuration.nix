@@ -109,14 +109,6 @@
     xwayland.enable = true;
   };
   programs.dconf.enable = true;
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs; [
-      thunar-archive-plugin # Archive management
-      thunar-volman # Volume management (automount removable devices)
-      thunar-media-tags-plugin # Tagging & renaming feature for media files
-    ];
-  };
   services.gvfs.enable = true;
   services.tumbler.enable = true;
   
@@ -129,6 +121,7 @@
     rocmPackages.rocminfo
     rocmPackages.rocm-smi
     vscodium.fhs
+    caja-with-extensions
   ];
   
   nix.settings.experimental-features = ["nix-command" "flakes"];

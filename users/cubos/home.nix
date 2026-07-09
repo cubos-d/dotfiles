@@ -47,6 +47,8 @@
     yazi
     eom
     vlc
+    candy-icons
+    sweet-folders
   ];
   
 }

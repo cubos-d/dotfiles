@@ -29,7 +29,7 @@ hl.monitor({
 
 -- Set programs that you use
 local terminal    = "wezterm"
-local fileManager = "thunar"
+local fileManager = "caja"
 local menu        = "wofi --show drun"
 
 
@@ -382,7 +382,7 @@ hl.layer_rule({
   blur         = true,
   ignore_alpha = 0.5,
 })
-hl.window_rule({ match = { class = "thunar" }, opacity = "0.7 0.7"})
+-- hl.window_rule({ match = { class = "thunar" }, opacity = "0.7 0.7"})
 hl.window_rule({ match = { class = "codium"}, opacity = "0.9 0.9" })
-hl.layer_rule({ match = {namespace = "thunar"}, blur = true})
+hl.layer_rule({ match = {namespace = "caja"}, blur = true})
 hl.layer_rule({ match = {namespace = "codium"}, blur = true})
