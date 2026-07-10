@@ -29,8 +29,9 @@ hl.monitor({
 
 -- Set programs that you use
 local terminal    = "wezterm"
-local fileManager = "caja"
+local fileManager = "thunar"
 local menu        = "wofi --show drun"
+local gui_text_editor = "codium"
 
 
 -------------------
@@ -268,7 +269,7 @@ local closeWindowBind = hl.bind(mainMod .. " + BACKSPACE", hl.dsp.window.close()
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + CONTROL + Q", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
@@ -382,7 +383,7 @@ hl.layer_rule({
   blur         = true,
   ignore_alpha = 0.5,
 })
--- hl.window_rule({ match = { class = "thunar" }, opacity = "0.7 0.7"})
-hl.window_rule({ match = { class = "codium"}, opacity = "0.9 0.9" })
-hl.layer_rule({ match = {namespace = "caja"}, blur = true})
-hl.layer_rule({ match = {namespace = "codium"}, blur = true})
+hl.window_rule({ match = { class = fileManager }, opacity = "0.83 1 0.83"})
+hl.window_rule({ match = { class = gui_text_editor}, opacity = "0.9 0.9 0.9" })
+hl.layer_rule({ match = {namespace = fileManager}, blur = true, ignore_alpha = 1})
+hl.layer_rule({ match = {namespace = gui_text_editor}, blur = true})
