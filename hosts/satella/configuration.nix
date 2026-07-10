@@ -128,7 +128,6 @@
     rocmPackages.rocminfo
     rocmPackages.rocm-smi
     vscodium.fhs
-    caja-with-extensions
   ];
   
   nix.settings.experimental-features = ["nix-command" "flakes"];

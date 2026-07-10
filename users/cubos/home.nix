@@ -15,6 +15,7 @@
     ./homedots/gtk.nix
     ./homedots/dot_links.nix
     ./homedots/homefiles.nix
+    ./sec/gnupass.nix
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -49,6 +50,10 @@
     vlc
     candy-icons
     sweet-folders
+    atril
+    libreoffice-still
+    hunspellDicts.es_ANY
+    hunspellDicts.en_US
   ];
   
 }
