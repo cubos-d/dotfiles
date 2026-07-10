@@ -4,6 +4,8 @@ format = """
 [░▒▓](purple)\
 $os\
 $username\
+[@](bg:purple fg:cyan)\
+$hostname\
 [](bg:peach fg:purple)\
 $directory\
 [](bg:red fg:peach)\
@@ -19,7 +21,11 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[▓▒░](fg:blue)\ 
+[](fg:blue bg:black)\
+$time\
+[](fg:black bg:purple)\
+[ 󰄻 ](bg:purple)\
+[▓▒░](fg:purple)\ 
 $line_break\
 $character"""
 
@@ -62,6 +68,11 @@ show_always = true
 style_user = "bg:purple fg:crust"
 style_root = "bg:purple fg:crust"
 format = '[ $user]($style)'
+
+[hostname]
+ssh_only = false
+style = "bg:purple fg:sapphire"
+format = "[$hostname]($style)"
 
 [directory]
 style = "bg:peach fg:crust"
@@ -138,8 +149,8 @@ format = '[[ $symbol( $context) ](fg:crust bg:sapphire)]($style)'
 [time]
 disabled = false
 time_format = "%R"
-style = "bg:violet"
-format = '[[  $time ](fg:crust bg:violet)]($style)'
+style = "bg:black"
+format = '[[  $time ](fg:sky bg:black)]($style)'
 
 [line_break]
 disabled = false

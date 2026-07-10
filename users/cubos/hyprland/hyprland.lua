@@ -29,8 +29,9 @@ hl.monitor({
 
 -- Set programs that you use
 local terminal    = "wezterm"
-local fileManager = "dolphin"
+local fileManager = "thunar"
 local menu        = "wofi --show drun"
+local gui_text_editor = "codium"
 
 
 -------------------
@@ -45,7 +46,8 @@ local menu        = "wofi --show drun"
 hl.on("hyprland.start", function () 
    --hl.exec_cmd(terminal)
    hl.exec_cmd("nm-applet")
-   hl.exec_cmd("waybar & hyprpaper")
+   hl.exec_cmd("waybar")
+   hl.exec_cmd("awww-daemon")
 end)
 
 
@@ -121,11 +123,12 @@ hl.config({
 
         blur = {
             enabled   = true,
-            size      = 3,
-            passes    = 2,
-	    new_optimizations = true,
+            size      = 7, --3,
+            passes    = 3, --2,
+	        new_optimizations = true,
+            contrast = 1.5,
             vibrancy  = 0.1696,
-	    vibrancy_darkness = 1,
+	        vibrancy_darkness = 1,
         },
 
 	glow = {
@@ -150,9 +153,9 @@ hl.curve("easy",           { type = "spring", mass = 1, stiffness = 71.2633, dam
 
 hl.animation({ leaf = "global",        enabled = true,  speed = 10,   bezier = "default" })
 hl.animation({ leaf = "border",        enabled = true,  speed = 5.39, bezier = "easeOutQuint" })
-hl.animation({ leaf = "windows",       enabled = true,  speed = 4.79, spring = "easy" })
-hl.animation({ leaf = "windowsIn",     enabled = true,  speed = 4.1,  spring = "easy",         style = "popin 87%" })
-hl.animation({ leaf = "windowsOut",    enabled = true,  speed = 1.49, bezier = "linear",       style = "popin 87%" })
+hl.animation({ leaf = "windows",       enabled = true,  speed = 2.49, bezier = "quick" })
+hl.animation({ leaf = "windowsIn",     enabled = true,  speed = 2.49, bezier = "quick",       style = "popin 50%" })
+hl.animation({ leaf = "windowsOut",    enabled = true,  speed = 2.49, bezier = "quick",       style = "popin 50%" })
 hl.animation({ leaf = "fadeIn",        enabled = true,  speed = 1.73, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeOut",       enabled = true,  speed = 1.46, bezier = "almostLinear" })
 hl.animation({ leaf = "fade",          enabled = true,  speed = 3.03, bezier = "quick" })
@@ -266,7 +269,7 @@ local closeWindowBind = hl.bind(mainMod .. " + BACKSPACE", hl.dsp.window.close()
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + CONTROL + Q", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
@@ -380,4 +383,7 @@ hl.layer_rule({
   blur         = true,
   ignore_alpha = 0.5,
 })
-
+hl.window_rule({ match = { class = fileManager }, opacity = "0.83 0.9 0.83"})
+hl.window_rule({ match = { class = gui_text_editor}, opacity = "0.9 0.9 0.9" })
+hl.layer_rule({ match = {namespace = fileManager}, blur = true, ignore_alpha = 1})
+hl.layer_rule({ match = {namespace = gui_text_editor}, blur = true})
