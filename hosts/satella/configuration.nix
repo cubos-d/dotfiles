@@ -13,6 +13,7 @@
       ./uv.nix
       ./gc.nix
       ./printers.nix
+      ./steam.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
