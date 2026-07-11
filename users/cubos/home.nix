@@ -52,7 +52,9 @@
     sweet-folders
     atril
     libreoffice-still
-    hunspellDicts.es_ANY
+    hunspellDicts.es_MX
+    hunspellDicts.es_CO
+    hunspellDicts.es_ES
     hunspellDicts.en_US
   ];
   
