@@ -56,6 +56,8 @@
     hunspellDicts.es_CO
     hunspellDicts.es_ES
     hunspellDicts.en_US
+    pluma
+    gscan2pdf
   ];
   
 }

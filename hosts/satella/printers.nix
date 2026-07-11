@@ -18,4 +18,12 @@
     ];
     ensureDefaultPrinter = "Epson_L3110_Kaede";
   };
+
+  hardware.sane = {
+    enable = true;
+    netConf = ''
+      # IP Address or hostname of the scanner
+      192.168.0.12
+    '';
+  };
 }
