@@ -58,6 +58,7 @@
     hunspellDicts.en_US
     pluma
     gscan2pdf
+    remmina
   ];
   
 }
