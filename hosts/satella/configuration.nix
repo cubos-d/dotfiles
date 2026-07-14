@@ -12,6 +12,8 @@
       ./amdgpu.nix
       ./uv.nix
       ./gc.nix
+      ./printers.nix
+      ./steam.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -68,16 +70,9 @@
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
-
-
-  
-
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Enable sound.
   # services.pulseaudio.enable = true;
@@ -128,7 +123,6 @@
     rocmPackages.rocminfo
     rocmPackages.rocm-smi
     vscodium.fhs
-    caja-with-extensions
   ];
   
   nix.settings.experimental-features = ["nix-command" "flakes"];

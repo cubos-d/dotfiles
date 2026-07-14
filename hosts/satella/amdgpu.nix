@@ -28,4 +28,9 @@
     };
   };
   services.lact.enable = true;
+  hardware.graphics = {
+    ## radv: an open-source Vulkan driver from freedesktop
+    enable = true;
+    enable32Bit = true;
+  };
 }

@@ -15,6 +15,7 @@
     ./homedots/gtk.nix
     ./homedots/dot_links.nix
     ./homedots/homefiles.nix
+    ./sec/gnupass.nix
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -30,14 +31,12 @@
     wofi
     waybar
     wl-clipboard
-    hyprpaper
     fastfetch
     htop
     starship
     wlogout
     nerd-fonts.comic-shanns-mono
     eza
-    starship
     discord
     nwg-look
     nwg-displays
@@ -49,6 +48,16 @@
     vlc
     candy-icons
     sweet-folders
+    atril
+    libreoffice-still
+    hunspellDicts.es_MX
+    hunspellDicts.es_CO
+    hunspellDicts.es_ES
+    hunspellDicts.en_US
+    pluma
+    gscan2pdf
+    remmina
+    quickshell
   ];
   
 }
