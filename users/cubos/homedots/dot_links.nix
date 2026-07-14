@@ -1,11 +1,9 @@
 { config, pkgs, inputs, ... }:
 
 {
-  # Change this line in your home.nix to reference the absolute physical path
+  # *=_=_=_=_=_=_=_=_=_=_= hyprland =_=_=_=_=_=_=_=_=_=_=*
   xdg.configFile."hypr/hyprland.lua".source = 
     config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/hyprland/hyprland.lua";
-    
-  # Do the same for your waybar configs if you are actively tweaking them
   # *=_=_=_=_=_=_=_=_=_=_= waybar =_=_=_=_=_=_=_=_=_=_=*
   xdg.configFile."waybar/config".source = 
     config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/waybar/config";
@@ -26,4 +24,7 @@
     config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/thunar/thunar.xml";
   xdg.configFile."Thunar/uca.xml".source = 
     config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/thunar/uca.xml";
+  # *=_=_=_=_=_=_=_=_=_=_= quickshell =_=_=_=_=_=_=_=_=_=_=*
+  xdg.configFile."quickshell/".source = 
+    config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/quickshell";
 }
