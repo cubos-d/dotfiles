@@ -1,8 +1,8 @@
 * {
     border: none;	
-    border-radius: 30px;
+    border-radius: 22px;
     font-family: "ComicShannsMono Nerd Font";
-    font-size: 16px;
+    font-size: 14px;
     min-height: 0;
 }
 /*
@@ -25,13 +25,16 @@ window#waybar {
 
 #window {
     font-weight: bold;
-    font-family: "Ubuntu";
+    font-family: "ComicShannsMono Nerd Font";
 }
-/*
+
 #workspaces {
-    padding: 0 5px;
+    border-left: 2px solid yellow;
 }
-*/
+
+#taskbar {
+    border-left: 2px solid yellow;
+}
 
 #workspaces button {
     padding: 5px 5px;
@@ -139,12 +142,18 @@ window#waybar {
 #custom-start {
 	color: red;
 	background: linear-gradient(90deg, rgba(0, 0, 25, 0.35), rgba(20, 0, 40, 0.35));
-	border-top: 2px solid yellow;
-	border-bottom: 2px solid yellow;
+    border-right: 2px solid yellow;
+    /*border-left: 2px solid yellow;*/
 }
 
 #custom-void {
-	border-bottom: 2px solid yellow;
+	border-left: 2px solid yellow; 
+    border-radius: 30px;
+}
+
+#custom-username {
+	border-left: 2px solid yellow; 
+    border-radius: 30px;
 }
 
 #tray {

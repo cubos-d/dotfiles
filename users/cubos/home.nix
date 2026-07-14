@@ -31,14 +31,12 @@
     wofi
     waybar
     wl-clipboard
-    hyprpaper
     fastfetch
     htop
     starship
     wlogout
     nerd-fonts.comic-shanns-mono
     eza
-    starship
     discord
     nwg-look
     nwg-displays
@@ -59,6 +57,7 @@
     pluma
     gscan2pdf
     remmina
+    quickshell
   ];
   
 }

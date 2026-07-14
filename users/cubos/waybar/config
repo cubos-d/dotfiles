@@ -1,16 +1,16 @@
-{
+[{
     "layer": "top", // Waybar at top layer
-    "position": "left", // Waybar at the bottom of your screen
+    "position": "top", // Waybar at the bottom of your screen
     //"height": 1080, // Waybar height
 	"margin-left": 5,
 	"margin-right": 5,
-	"margin-top": 5,
-	"margin-bottom": 5,
+	"margin-top": 0,
+	"margin-bottom": 0,
     // "width": 1366, // Waybar width
     // Choose the order of the modules
-    //"modules-center": ["hyprland/window"],
-    "modules-left": ["custom/start", "hyprland/workspaces"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "tray", "clock", "custom/void"],
+    "modules-center": ["clock"], 
+    "modules-left": ["hyprland/workspaces"], //["custom/start"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "tray", "custom/start"],
     "hyprland/workspaces": {
 		"persistent-workspaces": {
 			"*":10
@@ -25,9 +25,9 @@
             "5": "󱡞",
             "6": "",
             "7": "󰄻",
-	    "8": "󰊴",
-	    "9": "󰙯",
-	    "10": "", // 󰭄  󰙯        󰊴  󱍢    󰄻      󱀤       󱡞  󰚝    󰌀 
+	        "8": "󰊴",
+	        "9": "󰙯",
+	        "10": "", // 󰭄  󰙯        󰊴  󱍢    󰄻      󱀤       󱡞  󰚝    󰌀 
             "urgent": "",
             "focused": "",
             "default": ""
@@ -42,13 +42,13 @@
     },
     "clock": {
 		"format": "{:%H:%M}",
-        "format-alt": "{:%Y \nM: %m\nD: %d}"
+        "format-alt": "{:%Y M: %m D: %d}"
     },
     "cpu": {
-        "format": "\n\n{usage}%"
+        "format": " {usage}%"
     },
     "memory": {
-        "format": "\n\n{}%\n"
+        "format": " {}%"
     },
     "battery": {
         "bat": "BAT0",
@@ -64,14 +64,14 @@
     },
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": " \n{signalStrength}%",
-        "format-ethernet": "",
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet": " ",
         "format-disconnected": "⚠"
     },
     "pulseaudio": {
         //"scroll-step": 1,
-        "format": "\n{icon}\n{volume}%\n",
-        "format-bluetooth": "\n{icon}\n{volume}%\n",
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
         "format-muted": "",
         "format-icons": {
             "headphones": "",
@@ -92,11 +92,16 @@
         "exec-if": "pgrep spotify"
     },
 	"custom/void": {
-		"format": "\n"
+		"format": ""
 	},
+    "custom/username": {
+        "exec": "whoami",
+        "format": " {} ",
+        "interval": "once"
+    },
 	"custom/start": {
-		"format": "\n\n",
+		"format": "   ",
 		"icon-size": 30,
 		"on-click": "wlogout --protocol layer-shell" 
 	}
-}
+}]
