@@ -16,3 +16,5 @@ sudo nix-store --gc
 sudo nix-store --optimize
 
 echo "Garbage collection complete."
+
+#Hello!
