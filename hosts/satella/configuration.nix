@@ -14,6 +14,7 @@
       ./gc.nix
       ./printers.nix
       ./steam.nix
+      ./virtualization.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -88,7 +89,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.cubos = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "render" "ollama" "libvirt" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "video" "render" "ollama" "libvirt" "libvirtd" ];
     home = "/home/cubos";
     packages = with pkgs; [
   #     tree
