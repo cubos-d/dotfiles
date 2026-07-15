@@ -5,35 +5,33 @@
     libvirtd = {
       enable = true;
       qemu = {
-        package = pkgs.qemu;
-        ovmf.enable = true;
-        ovmf.packages = [ pkgs.OVMFFull.fd ];
-        swtpm.enable = true;
-      }
+        # You can uncomment this safely now
+        swtpm.enable = true; 
+      };
     };
     spiceUSBRedirection.enable = true;
   };
+  
   services.spice-vdagentd.enable = true;
-  users.groups.libvirtd.members = ["cubos"];
   programs.virt-manager.enable = true;
+
+  # ---> ADD THIS BLOCK TO FIX THE TPM ASSERTION CRASH <---
+  systemd.services.virt-secret-init-encryption = {
+    environment = {
+      SYSTEMD_CREDENTIAL_TPM2 = "0";
+    };
+  };
+
   environment.systemPackages = with pkgs; [
+    virt-manager
     qemu
     guestfs-tools
     virtiofsd
-    virt-manager
     virt-viewer
     spice spice-gtk
     spice-protocol
-    win-virtio
+    virtio-win
     win-spice
     adwaita-icon-theme
   ];
-
-  systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
-
-  boot.binfmt.emulatedSystems = [
-    "aarch64-linux"
-    "riscv64-linux"
-  ];
-
 }

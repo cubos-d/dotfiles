@@ -14,7 +14,7 @@
       ./gc.nix
       ./printers.nix
       ./steam.nix
-      ./virtualization.nix
+      #./virtualization.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
