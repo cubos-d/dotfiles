@@ -1,37 +1,24 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
-  virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu = {
-        # You can uncomment this safely now
-        swtpm.enable = true; 
-      };
-    };
-    spiceUSBRedirection.enable = true;
-  };
-  
-  services.spice-vdagentd.enable = true;
-  programs.virt-manager.enable = true;
+  # 1. Enable KVM kernel modules
+  boot.kernelModules = [ "kvm-amd" "kvm-intel" ];
 
-  # ---> ADD THIS BLOCK TO FIX THE TPM ASSERTION CRASH <---
-  systemd.services.virt-secret-init-encryption = {
-    environment = {
-      SYSTEMD_CREDENTIAL_TPM2 = "0";
+  # 2. Add your user to the necessary groups (replace "YOUR_USERNAME")
+  users.users.cubos.extraGroups = [ "libvirtd" "kvm" ];
+
+  # 3. Enable virtualization services
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      swtpm.enable = true;
     };
   };
 
+  # 4. Install virt-manager (GUI) and other QEMU tools
   environment.systemPackages = with pkgs; [
     virt-manager
-    qemu
-    guestfs-tools
-    virtiofsd
     virt-viewer
-    spice spice-gtk
-    spice-protocol
-    virtio-win
-    win-spice
-    adwaita-icon-theme
+    qemu
   ];
 }
