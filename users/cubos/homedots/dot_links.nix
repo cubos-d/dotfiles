@@ -27,4 +27,7 @@
   # *=_=_=_=_=_=_=_=_=_=_= quickshell =_=_=_=_=_=_=_=_=_=_=*
   xdg.configFile."quickshell/".source = 
     config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/quickshell";
+  # *=_=_=_=_=_=_=_=_=_=_= screenshot utilities =_=_=_=_=_=_=_=_=_=_=*
+  xdg.configFile."swappy/config".source = 
+    config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/recording/swappy/config.txt";
 }
