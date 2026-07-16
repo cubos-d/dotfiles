@@ -43,7 +43,6 @@
     nwg-wrapper
     file-roller
     awww
-    yazi
     eom
     vlc
     candy-icons
@@ -58,6 +57,9 @@
     gscan2pdf
     remmina
     quickshell
+    grim
+    swappy
+    slurp
   ];
   
 }

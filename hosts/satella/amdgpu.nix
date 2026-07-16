@@ -33,4 +33,14 @@
     enable = true;
     enable32Bit = true;
   };
+
+  programs.obs-studio = {
+    enable = true;
+    package = pkgs.obs-studio; 
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-vaapi          # For AMD AMF/VAAPI encoding
+      obs-vkcapture      # For low-overhead Vulkan game capture
+      obs-pipewire-audio-capture # Best for system audio
+    ];
+  };
 }
