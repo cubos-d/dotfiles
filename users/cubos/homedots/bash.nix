@@ -8,6 +8,7 @@
       ls = "eza --group-directories-first --icons -lhg";
       cp = "cp --verbose";
       code = "codium";
+      killall = "pkill";
     };
 
     # Paste your large collection of custom prompts, exports, and scripts here
