@@ -89,7 +89,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.cubos = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "render" "ollama" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "render" "ollama" "kvm" "qemu" "libvirtd"];
     home = "/home/cubos";
     packages = with pkgs; [
   #     tree

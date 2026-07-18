@@ -11,5 +11,7 @@
   # 4. Install virt-manager (GUI) and other QEMU tools
   environment.systemPackages = with pkgs; [
     qemu
+    spice-gtk
+    virt-viewer
   ];
 }

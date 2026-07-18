@@ -29,6 +29,12 @@
           }
         ];
       };
+
+      vivy = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./vms/vivy/qtile-vm.nix ]; 
+      };
+
     };
   };
 }
