@@ -393,5 +393,5 @@ hl.layer_rule({ match = {namespace = fileManager}, blur = true, ignore_alpha = 1
 hl.window_rule({ match = { class = gui_text_editor}, opacity = "0.9 0.9 0.9" })
 hl.layer_rule({ match = {namespace = gui_text_editor}, blur = true})
 -- #********** Transparency for discord **************
-hl.window_rule({ match = { class = "discord"}, opacity = "0.8 0.9 0.8" })
+hl.window_rule({ match = { class = "discord"}, opacity = "0.8 0.9 1.0" })
 hl.layer_rule({ match = {namespace = "discord"}, blur = true})
