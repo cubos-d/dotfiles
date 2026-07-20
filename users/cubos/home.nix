@@ -16,6 +16,7 @@
     ./homedots/dot_links.nix
     ./homedots/homefiles.nix
     ./sec/gnupass.nix
+    ../../vms/miku-ubuntu-mate/miku-mate1.nix
   ];
   wayland.windowManager.hyprland = {
     enable = true;
