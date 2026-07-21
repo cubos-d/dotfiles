@@ -25,10 +25,9 @@
         extensions = with pkgs.vscode-extensions; [
           jnoortheen.nix-ide
           ms-python.python
-          ms-python.vscode-pylance
           ms-vscode.cmake-tools
-          ms-vscode.cpptools
-          ms-vscode.cpptools-extension-pack
+          llvm-vs-code-extensions.vscode-clangd
+          twxs.cmake
           ms-vscode.makefile-tools
           ms-toolsai.jupyter
           ms-toolsai.jupyter-keymap
@@ -66,7 +65,8 @@
           "workbench.iconTheme" = "material-icon-theme";
           "material-icon-theme.folders.color" = "#a9a108";
           "material-icon-theme.rootFolders.color" = "#de3a08";
-          "python.languageServer" = "Pylance";
+          "python.languageServer" = "Jedi";
+          "cmake.exportCompileCommandsFile" = true;
         };
         keybindings = [
           {
@@ -85,6 +85,8 @@
   };
   home.packages = with pkgs; [
     nil
-    pyright
+    llvmPackages.clang-tools
+    gdb
+    rust-analyzer
   ];
 }

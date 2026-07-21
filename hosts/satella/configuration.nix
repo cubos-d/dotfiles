@@ -121,6 +121,9 @@
     rocmPackages.rocminfo
     rocmPackages.rocm-smi
     vscodium.fhs
+    gnumake
+    rustc
+    cargo
   ];
   
   nix.settings.experimental-features = ["nix-command" "flakes"];
