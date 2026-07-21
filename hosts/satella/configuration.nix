@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports =
@@ -91,9 +91,6 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "video" "render" "ollama" "kvm" "qemu" "libvirtd"];
     home = "/home/cubos";
-    packages = with pkgs; [
-  #     tree
-    ];
   };
 
   programs.firefox.enable = true;

@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 let
   themeName = "ChromeOS-Darker-UltraViolet-Rounded";
