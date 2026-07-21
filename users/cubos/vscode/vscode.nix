@@ -66,7 +66,7 @@
           "workbench.iconTheme" = "material-icon-theme";
           "material-icon-theme.folders.color" = "#a9a108";
           "material-icon-theme.rootFolders.color" = "#de3a08";
-          "python.languageServer" = "Pyright";
+          "python.languageServer" = "Pylance";
         };
         keybindings = [
           {
