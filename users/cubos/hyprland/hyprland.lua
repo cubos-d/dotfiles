@@ -29,7 +29,7 @@ hl.monitor({
 
 -- Set programs that you use
 local terminal    = "wezterm"
-local fileManager = "thunar"
+local fileManager = "nautilus"
 local menu        = "wofi --show drun"
 local gui_text_editor = "codium"
 
@@ -387,8 +387,8 @@ hl.layer_rule({
 })
 
  -- #********* Transparency for file Manager ***********
-hl.window_rule({ match = { class = fileManager }, opacity = "0.83 0.9 0.83"})
-hl.layer_rule({ match = {namespace = fileManager}, blur = true, ignore_alpha = 1})
+--hl.window_rule({ match = { class = fileManager }, opacity = "0.83 0.9 0.83"}) --"0.83 0.9 0.83"
+--hl.layer_rule({ match = {namespace = fileManager}, blur = true, ignore_alpha = 1})
 -- #********** Transparency for vscode ***************
 hl.window_rule({ match = { class = gui_text_editor}, opacity = "0.9 0.9 0.9" })
 hl.layer_rule({ match = {namespace = gui_text_editor}, blur = true})

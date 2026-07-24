@@ -15,6 +15,7 @@
       ./printers.nix
       ./steam.nix
       ./virtualization.nix
+      ./filemanager.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -101,17 +102,7 @@
     withUWSM = true;
     xwayland.enable = true;
   };
-  programs.dconf.enable = true;
-  services.gvfs.enable = true;
-  services.tumbler.enable = true;
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs; [
-      thunar-archive-plugin 
-      thunar-volman 
-      thunar-media-tags-plugin 
-    ];
-  };
+  
   nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).

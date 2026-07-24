@@ -15,6 +15,7 @@
     ./homedots/gtk.nix
     ./homedots/dot_links.nix
     ./homedots/homefiles.nix
+    ./nautilus/nautilus.nix
     ./sec/gnupass.nix
     ../../vms/miku-ubuntu-mate/miku-mate1.nix
   ];
@@ -42,7 +43,6 @@
     nwg-look
     nwg-displays
     nwg-wrapper
-    file-roller
     awww
     eom
     vlc
