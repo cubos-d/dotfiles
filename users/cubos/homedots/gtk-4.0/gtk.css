@@ -44,9 +44,9 @@
 @define-color shade_color RGB(0 0 6/25%);
 @define-color scrollbar_outline_color RGB(0 0 12/95%);
 :root {
-  --accent-bg-color: #8b5cf6;
+  --accent-bg-color: #3b82f6;
   --accent-fg-color: white;
-  --active-toggle-bg-color: rgb(139 92 246 / 20%);
+  --active-toggle-bg-color: rgb(59 130 246 / 20%);
   --standalone-color-oklab: max(l, 0.85) a b;
   --accent-color: oklab(from var(--accent-bg-color) var(--standalone-color-oklab));
   --destructive-color: oklab(from var(--destructive-bg-color) var(--standalone-color-oklab));

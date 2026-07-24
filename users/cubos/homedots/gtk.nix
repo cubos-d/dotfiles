@@ -22,6 +22,7 @@ in
     };
     gtk4.extraConfig = {
       gtk-font-name= "ComicShannsMono Nerd Font";
+      gtk-application-prefer-dark-theme = 0;
     };
   };
 
