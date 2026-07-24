@@ -20,6 +20,9 @@ in
         gtk-font-name = "ComicShannsMono Nerd Font";
       };
     };
+    gtk4.extraConfig = {
+      gtk-font-name= "ComicShannsMono Nerd Font";
+    };
   };
 
   home.file.".local/share/themes/${themeName}" = {
