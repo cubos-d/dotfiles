@@ -16,36 +16,10 @@
       ./steam.nix
       ./virtualization.nix
       ./filemanager.nix
+      ./grub.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.grub.enable = false;
-  #boot.loader.efi.canTouchEfiVariables = true;
   console.keyMap = "la-latin1";
-  #boot.loader = {
-  #  efi = {
-  #    canTouchEfiVariables = true;
-  #  };
-  #  grub = {
-  #    enable = true;
-  #    device = "nodev";
-  #    efiSupport = true;
-  #    extraConfig = ''
-  #      set keymap=la
-  #    '';
-  #  };
-  #};
-
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-    };
-    systemd-boot = {
-      enable = true;
-      consoleMode = "max";
-      configurationLimit = 15;
-    };
-  };
   
   boot.kernelParams = [
     "video=HDMI-A-1:e"
