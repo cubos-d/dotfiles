@@ -1,9 +1,5 @@
 { pkgs, ... }:
 
-let
-  themeName = "ChromeOS-Darker-UltraViolet-Rounded";
-  chrome-os-dark = import ./gtk-theme.nix { inherit pkgs; }; 
-in
 {
   gtk = {
     enable = true;
@@ -24,10 +20,6 @@ in
       gtk-font-name= "ComicShannsMono Nerd Font";
       gtk-application-prefer-dark-theme = 0;
     };
-  };
-
-  home.file.".local/share/themes/${themeName}" = {
-    source = "${chrome-os-dark}/share/themes/${themeName}";
   };
 
   qt = {
