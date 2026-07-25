@@ -8,11 +8,11 @@ in
   gtk = {
     enable = true;
     theme = {
-      name = themeName; 
-      package = chrome-os-dark;
+      name = "Sweet-Dark-v40"; 
+      package = pkgs.sweet;
     };
     iconTheme = {
-      name = "Sweet-Purple-Filled";
+      name = "Sweet-Yellow-Filled";
       package = pkgs.sweet-folders;
     };
     gtk3 = {

@@ -48,6 +48,7 @@
     vlc
     candy-icons
     sweet-folders
+    sweet
     atril
     libreoffice-still
     hunspellDicts.es_MX

@@ -123,8 +123,8 @@ hl.config({
 
         blur = {
             enabled   = true,
-            size      = 8, --3,
-            passes    = 2, --2,
+            size      = 7, --3,
+            passes    = 3, --2,
 	        new_optimizations = true,
             contrast = 1.5,
             vibrancy  = 1,
@@ -390,7 +390,7 @@ hl.layer_rule({
 --hl.window_rule({ match = { class = fileManager }, opacity = "0.83 0.9 0.83"}) --"0.83 0.9 0.83"
 --hl.layer_rule({ match = {namespace = fileManager}, blur = true, ignore_alpha = 1})
 -- #********** Transparency for vscode ***************
-hl.window_rule({ match = { class = gui_text_editor}, opacity = "0.9 0.9 0.9" })
+hl.window_rule({ match = { class = gui_text_editor}, opacity = "0.85 0.9 0.85" })
 hl.layer_rule({ match = {namespace = gui_text_editor}, blur = true})
 -- #********** Transparency for discord **************
 hl.window_rule({ match = { class = "discord"}, opacity = "0.8 0.9 1.0" })

@@ -23,8 +23,8 @@
 
   environment.systemPackages = with pkgs; [
     nautilus
-    libheif
-    libheif.out
+    #libheif
+    #libheif.out
   ];
-  environment.pathsToLink = [ "share/thumbnailers" ];
+  #environment.pathsToLink = [ "share/thumbnailers" ];
 }

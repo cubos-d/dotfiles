@@ -26,8 +26,6 @@
   xdg.configFile."swappy/config".source = 
     config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/recording/swappy/config.txt";
   # *=_=_=_=_=_=_=_=_=_=_= gtk4.0 stuff =_=_=_=_=_=_=_=_=_=_=*
-  xdg.configFile."gtk-4.0/gtk.css".source = 
-    config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/homedots/gtk-4.0/gtk.css";
-  xdg.configFile."gtk-4.0/gtk-dark.css".source = 
-    config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/homedots/gtk-4.0/gtk-dark.css";
+  xdg.configFile."gtk-4.0/gtk.css".source = ./gtk-4.0/gtk.css;
+  xdg.configFile."gtk-4.0/gtk-dark.css".source = ./gtk-4.0/gtk-dark.css;
 }
