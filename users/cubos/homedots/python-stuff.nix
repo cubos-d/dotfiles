@@ -7,6 +7,7 @@
       numpy
       scipy
       matplotlib
+      tkinter
     ]))
   ];
 }

@@ -62,6 +62,8 @@
     grim
     swappy
     slurp
+    cm_unicode
+    newcomputermodern
   ];
   
 }
