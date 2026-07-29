@@ -37,7 +37,7 @@
     htop
     starship
     wlogout
-    nerd-fonts.comic-shanns-mono
+    nerd-fonts.comic-shanns-mono #Beautiful font
     eza
     discord
     nwg-look
@@ -62,8 +62,12 @@
     grim
     swappy
     slurp
-    cm_unicode
-    newcomputermodern
+    cm_unicode #ugly fonts for publications
+    newcomputermodern #ugly font for publications
+    llvmPackages.openmp
+    zip
+    unzip
+    _7zz
   ];
   
 }
