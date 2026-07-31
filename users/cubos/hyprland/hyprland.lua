@@ -378,8 +378,13 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
-
+-- #********** Transparency for bars ***************
 hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
+hl.layer_rule({ 
+    match = { namespace = "quickshell" }, 
+    blur = true,
+    ignore_alpha = 0.05,
+})
 hl.layer_rule({
   match        = { namespace = "wofi" },
   blur         = true,
