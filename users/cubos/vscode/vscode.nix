@@ -82,6 +82,7 @@
           "workbench.editorAssociations" = {
             "*.qrc" = "qt-core.qrcEditor";
           };
+          "qt-qml.doNotAskForQmllsDownload" = true;
         };
         keybindings = [
           {
