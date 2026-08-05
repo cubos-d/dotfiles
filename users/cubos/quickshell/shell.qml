@@ -35,7 +35,7 @@ PanelWindow {
             property bool isActive: Hyprland.focusedWorkspace?.id === (index + 1)
             text: workspaceSymbols[wsId] || String(wsId)
             color: isActive ? '#d4ff14' : (ws ? '#7af7aa' : "#444b6a")
-            font { pixelSize: 12; bold: true; family: "ComicShannsMono Nerd Font" }
+            font { pixelSize: 13; bold: true; family: "ComicShannsMono Nerd Font" }
           }
         }
       }
@@ -52,8 +52,10 @@ PanelWindow {
         anchors.centerIn: parent // Keep the row centered in the capsule
         spacing: 12
         Text {
-          text: "Hola Quickshell"
+          id: clock
+          text: Qt.formatDateTime(new Date(), "ddd, yyyy MMM dd - HH:mm")
           color: "#d4ff14"
+          font { pixelSize: 13; bold: true; family: "ComicShannsMono Nerd Font" }
         }
       }
     }
@@ -69,8 +71,9 @@ PanelWindow {
         anchors.centerIn: parent // Keep the row centered in the capsule
         spacing: 12
         Text {
-          text: "Hola Quickshell 2"
+          text: "Hola Quickshell 2 plaplaplaplapal"
           color: "#d4ff14"
+          font { pixelSize: 13; bold: true; family: "ComicShannsMono Nerd Font" }
         }
       }
     }
