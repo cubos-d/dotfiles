@@ -11,15 +11,68 @@ PanelWindow {
   anchors.left: true
   anchors.right: true
   implicitHeight: 25
-  color: "transparent"
+  color: Qt.rgba(0.0, 0.0, 0.0, 0.1) //"transparent"
+
+  property string fontFamily: "ComicShannsMono Nerd Font"
+  property int fontSize: 13
+  property int cpuUsage: 0
+  property int memoryUsage: 0
+  property var lastCpuIdle: 0
+  property var lastCpuTotal: 0
   readonly property var workspaceSymbols: ["", "", "󰌀", "", "󰄛", "", "", "󱡞", "󰊴", "󰙯", ""]
+
+  Process {
+    id: cpuProc
+    command: ["sh", "-c", "head -1 /proc/stat"]
+    stdout: SplitParser {
+        onRead: data => {
+            if (!data) return
+            var p = data.trim().split(/\s+/)
+            var idle = parseInt(p[4]) + parseInt(p[5])
+            var total = p.slice(1, 8).reduce((a, b) => a + parseInt(b), 0)
+            if (lastCpuTotal > 0) {
+                cpuUsage = Math.round(100 * (1 - (idle - lastCpuIdle) / (total - lastCpuTotal)))
+            }
+            lastCpuTotal = total
+            lastCpuIdle = idle
+        }
+    }
+    Component.onCompleted: running = true
+  }
+
+  Process {
+    id: memProc
+    command: ["sh", "-c", "free | grep Mem"]
+    stdout: SplitParser {
+        onRead: data => {
+            if (!data) return
+            var parts = data.trim().split(/\s+/)
+            var total = parseInt(parts[1]) || 1
+            var used = parseInt(parts[2]) || 0
+            memoryUsage = Math.round(100 * used / total)
+        }
+    }
+    Component.onCompleted: running = true
+  }
+
+  // Update your timer to run both processes
+  Timer {
+    interval: 1000
+    running: true
+    repeat: true
+    onTriggered: {
+        cpuProc.running = true
+        memProc.running = true
+    }
+  }
+
   RowLayout {
     anchors.fill: parent
     Rectangle {
       height: parent.height
       width: workspaceRow.width + 30 
       radius: 20 
-      color: Qt.rgba(0.07, 0, 0.16, 0.1)
+      color: Qt.rgba(0.07, 0, 0.16, 0.3)
       Row {
         id: workspaceRow
         anchors.centerIn: parent // Keep the row centered in the capsule
@@ -35,7 +88,7 @@ PanelWindow {
             property bool isActive: Hyprland.focusedWorkspace?.id === (index + 1)
             text: workspaceSymbols[wsId] || String(wsId)
             color: isActive ? '#d4ff14' : (ws ? '#7af7aa' : "#444b6a")
-            font { pixelSize: 13; bold: true; family: "ComicShannsMono Nerd Font" }
+            font { pixelSize: fontSize; bold: true; family: fontFamily }
           }
         }
       }
@@ -53,9 +106,15 @@ PanelWindow {
         spacing: 12
         Text {
           id: clock
-          text: Qt.formatDateTime(new Date(), "ddd, yyyy MMM dd - HH:mm")
+          text: Qt.formatDateTime(new Date(), "    ddd, MMM dd yyyy - HH:mm    ")
           color: "#d4ff14"
-          font { pixelSize: 13; bold: true; family: "ComicShannsMono Nerd Font" }
+          font { pixelSize: fontSize; bold: true; family: fontFamily }
+          Timer {
+              interval: 1000
+              running: true
+              repeat: true
+              onTriggered: clock.text = Qt.formatDateTime(new Date(), "    ddd, MMM dd yyyy - HH:mm    ")
+          }
         }
       }
     }
@@ -71,12 +130,33 @@ PanelWindow {
         anchors.centerIn: parent // Keep the row centered in the capsule
         spacing: 12
         Text {
-          text: "Hola Quickshell 2 plaplaplaplapal"
+          text: " " + cpuUsage + "%"
           color: "#d4ff14"
-          font { pixelSize: 13; bold: true; family: "ComicShannsMono Nerd Font" }
+          font { pixelSize: fontSize; bold: true; family: fontFamily }
+        }
+        Text {
+          text: " " + memoryUsage + "%"
+          color: "#d4ff14"
+          font { pixelSize: fontSize; bold: true; family: fontFamily }
+        }
+      }
+    }
+    Item {}
+    Rectangle {
+      height: parent.height
+      width: powerButtonRow.width + 5
+      radius: 20 
+      color: Qt.rgba(0.07, 0, 0.16, 0.1)
+      Row {
+        id: powerButtonRow
+        anchors.centerIn: parent
+        spacing: 3
+        Text {
+          text: "  "
+          color: '#ed3300'
+          font { pixelSize: fontSize + 1; bold: true; family: fontFamily }
         }
       }
     }
   }
-  
 }

@@ -48,7 +48,7 @@
         "format": " {usage}%"
     },
     "memory": {
-        "format": " {}%"
+        "format": " {}%"
     },
     "battery": {
         "bat": "BAT0",

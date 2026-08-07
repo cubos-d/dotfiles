@@ -83,6 +83,7 @@
             "*.qrc" = "qt-core.qrcEditor";
           };
           "qt-qml.doNotAskForQmllsDownload" = true;
+          "qt-core.showWelcomePageOnActivation" = false;
         };
         keybindings = [
           {
