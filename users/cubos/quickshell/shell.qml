@@ -4,6 +4,7 @@ import Quickshell.Hyprland
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Io
+import Quickshell.Services.SystemTray
 
 PanelWindow {
   id: root
@@ -87,7 +88,7 @@ PanelWindow {
             property var ws: Hyprland.workspaces.values.find(w => w.id === index + 1)
             property bool isActive: Hyprland.focusedWorkspace?.id === (index + 1)
             text: workspaceSymbols[wsId] || String(wsId)
-            color: isActive ? '#d4ff14' : (ws ? '#7af7aa' : "#444b6a")
+            color: isActive ? '#d4ff14' : (ws ? "#7af7aa" : "#444b6a")
             font { pixelSize: fontSize; bold: true; family: fontFamily }
           }
         }
@@ -141,18 +142,42 @@ PanelWindow {
         }
       }
     }
+    Item{}
+    Rectangle {
+      height: parent.height
+      width: sysTrayRow.width + 5
+      radius: 20 
+      color: Qt.rgba(0.41, 0.00, 0.91, 0.3)
+      Row {
+        id: sysTrayRow
+        anchors.centerIn: parent
+        spacing: 3
+        Repeater {
+          model: SystemTray.items
+          Image {
+            source: modelData.icon
+            width: 24
+            height: 24
+            MouseArea {
+                anchors.fill: parent
+                onClicked: modelData.activate()
+            }
+          }
+        }
+      }
+    }
     Item {}
     Rectangle {
       height: parent.height
       width: powerButtonRow.width + 5
       radius: 20 
-      color: Qt.rgba(0.07, 0, 0.16, 0.1)
+      color: Qt.rgba(0.41, 0.00, 0.91, 0.3)
       Row {
         id: powerButtonRow
         anchors.centerIn: parent
         spacing: 3
         Text {
-          text: "  "
+          text: "   "
           color: '#ed3300'
           font { pixelSize: fontSize + 1; bold: true; family: fontFamily }
         }
