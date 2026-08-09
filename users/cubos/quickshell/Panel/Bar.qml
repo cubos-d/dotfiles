@@ -151,15 +151,10 @@ PanelWindow {
         var pct = Math.round(vol * 100)
 
         var soundIcon = ""
-        if (cleanData.includes("[MUTED]")) {
-            soundIcon = " "
-        } else {
-            var icons = [" ", " ", " ", " "]
-            // Smooth index mapping without iterations
-            var index = Math.min(Math.floor(pct / 33), 3)
-            soundIcon = icons[index]
-        }
-
+        var icons = ["  ", " ", " ", " ", " "]
+        // Smooth index mapping without iterations
+        var index = Math.min(Math.ceil(pct / 25), 4)
+        soundIcon = icons[index]
         soundStat = soundIcon + pct + "%"
       }
     }
