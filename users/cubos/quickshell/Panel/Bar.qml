@@ -126,26 +126,45 @@ PanelWindow {
 
   Process {
     id: soundProc
-    command: ["bash", "-c", "wpctl get-volume @DEFAULT_AUDIO_SINK@"]
+    // 1. Spawns exactly ONE long-running background process.
+    // It pipes pw-mon events through a while loop, checking for volume/route modifications.
+    command: [
+      "bash", "-c", 
+      "wpctl get-volume @DEFAULT_AUDIO_SINK@; pw-mon | while read -r line; do if [[ \"$line\" == *'changed'* || \"$line\" == *'props'* ]]; then wpctl get-volume @DEFAULT_AUDIO_SINK@; fi; done"
+    ]
+    
+    // 2. Automatically launches when Quickshell starts. Remove the 'Timer' code block completely!
+    running: true 
+    
     stdout: SplitParser {
       onRead: data => {
         var cleanData = data.trim()
+        if (!cleanData) return;
+        
+        // Format expected: "Volume: 0.45" or "Volume: 0.45 [MUTED]"
         var parts = cleanData.split(":")
+        if (parts.length < 2) return;
+        
         var vol = parseFloat(parts[1])
+        if (isNaN(vol)) return;
+        
         var pct = Math.round(vol * 100)
 
-        // 2. Define icons in clean 25% stepping buckets (0%, 25%, 50%, 75%, 100%)
-        var icons = [" ", " ", " ", " ", " "]
-        
-        // 3. Mathematical mapping: maps 0-100 directly to array indices 0-4 without loop iteration
-        var index = Math.min(Math.ceil(pct / 25), 4)
-        var soundIcon = icons[index]
+        var soundIcon = ""
+        if (cleanData.includes("[MUTED]")) {
+            soundIcon = " "
+        } else {
+            var icons = [" ", " ", " ", " "]
+            // Smooth index mapping without iterations
+            var index = Math.min(Math.floor(pct / 33), 3)
+            soundIcon = icons[index]
+        }
 
         soundStat = soundIcon + pct + "%"
       }
-      Component.onCompleted: running = true
     }
   }
+
 
   Timer {
     interval: 1000
@@ -158,12 +177,4 @@ PanelWindow {
     }
   }
 
-  Timer {
-    interval: 50
-    running: true
-    repeat: true
-    onTriggered: {
-      soundProc.running = true
-    }
-  }
 }
