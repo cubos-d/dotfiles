@@ -4,11 +4,6 @@
   # *=_=_=_=_=_=_=_=_=_=_= hyprland =_=_=_=_=_=_=_=_=_=_=*
   xdg.configFile."hypr/hyprland.lua".source = 
     config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/hyprland/hyprland.lua";
-  # *=_=_=_=_=_=_=_=_=_=_= waybar =_=_=_=_=_=_=_=_=_=_=*
-  xdg.configFile."waybar/config".source = 
-    config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/waybar/config";
-  xdg.configFile."waybar/style.css".source = 
-    config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/waybar/style.css";
   # *=_=_=_=_=_=_=_=_=_=_= menu =_=_=_=_=_=_=_=_=_=_=*
   xdg.configFile."wofi/config".source = 
     config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/wofi/config";

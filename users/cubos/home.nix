@@ -31,7 +31,7 @@
     btop
     wezterm
     wofi
-    waybar
+    quickshell
     wl-clipboard
     fastfetch
     htop
@@ -58,7 +58,6 @@
     pluma
     gscan2pdf
     remmina
-    quickshell
     grim
     swappy
     slurp
