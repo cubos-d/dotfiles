@@ -17,7 +17,7 @@ PanelWindow {
   property int memoryUsage: 0
   property var lastCpuIdle: 0
   property var lastCpuTotal: 0
-  property var sigStrength: 0
+  property string networkStats: ""
   readonly property var workspaceSymbols: ["", "", "󰌀", "", "󰄛", "", "", "󱡞", "󰊴", "󰙯", ""]
 
   /* 
@@ -90,7 +90,33 @@ PanelWindow {
 
   Process {
     id: netwProc
-    command: ["sh", "-c", "nmcli -f IN-USE,SIGNAL device wifi | grep '^*' | awk '{print $2}'"]
+    command: ["bash", "-c", "nmcli -t -f TYPE,STATE device | cut -d: -f1,2 | head -n 1"]
+    
+    stdout: SplitParser {
+      onRead: data => {
+        var cleanData = data.trim()
+        
+        // 1. If empty or not connected, show the warning right away
+        if (!cleanData || !cleanData.includes(":connected")) {
+          networkStats = "󰚽";
+          return;
+        }
+        
+        // 2. Extract the device type (fixed by adding [0])
+        var parts = cleanData.split(":")
+        var status = parts[0] 
+        
+        // 3. Match the device type
+        if (status === "ethernet") {
+          networkStats = "";
+        } else if (status === "wifi" || status === "802-11-wireless") {
+          networkStats = "";
+        } else {
+          networkStats = "󰚽";
+        }
+      }
+    }
+    Component.onCompleted: running = true
   }
 
   Timer {
@@ -100,6 +126,7 @@ PanelWindow {
     onTriggered: {
       cpuProc.running = true
       memProc.running = true
+      netwProc.running = true
     }
   }
 }
