@@ -17,6 +17,7 @@ PanelWindow {
   property int memoryUsage: 0
   property var lastCpuIdle: 0
   property var lastCpuTotal: 0
+  property var sigStrength: 0
   readonly property var workspaceSymbols: ["", "", "󰌀", "", "󰄛", "", "", "󱡞", "󰊴", "󰙯", ""]
 
   /* 
@@ -85,6 +86,11 @@ PanelWindow {
       }
     }
     Component.onCompleted: running = true
+  }
+
+  Process {
+    id: netwProc
+    command: ["sh", "-c", "nmcli -f IN-USE,SIGNAL device wifi | grep '^*' | awk '{print $2}'"]
   }
 
   Timer {

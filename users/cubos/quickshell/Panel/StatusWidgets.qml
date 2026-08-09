@@ -11,12 +11,12 @@ Rectangle {
     spacing: 12
     Text {
       text: " " + cpuUsage + "%"
-      color: "#d4ff14"
+      color: '#ff813d'
       font { pixelSize: fontSize; bold: true; family: fontFamily }
     }
     Text {
-      text: " " + memoryUsage + "% "
-      color: "#d4ff14"
+      text: " " + memoryUsage + "%"
+      color: '#4d91ff'
       font { pixelSize: fontSize; bold: true; family: fontFamily }
     }
   }

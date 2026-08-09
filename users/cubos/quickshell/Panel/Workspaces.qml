@@ -21,7 +21,7 @@ Rectangle {
         property var ws: Hyprland.workspaces.values.find(w => w.id === index + 1)
         property bool isActive: Hyprland.focusedWorkspace?.id === (index + 1)
         text: workspaceSymbols[wsId] || String(wsId)
-        color: isActive ? '#d4ff14' : (ws ? "#7af7aa" : "#444b6a")
+        color: isActive ? '#cbf900' : (ws ? '#3ed478' : '#202d65')
         font { pixelSize: fontSize; bold: true; family: fontFamily }
       }
     }
