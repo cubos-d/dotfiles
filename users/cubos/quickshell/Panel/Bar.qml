@@ -134,14 +134,14 @@ PanelWindow {
           font { pixelSize: fontSize; bold: true; family: fontFamily }
         }
         Text {
-          text: " " + memoryUsage + "%"
+          text: " " + memoryUsage + "% "
           color: "#d4ff14"
           font { pixelSize: fontSize; bold: true; family: fontFamily }
         }
       }
     }
     Item{}
-    Tray {}
+    Tray { barWindow: root  }
     Item {}
     EndButton {}
   }
