@@ -69,7 +69,7 @@ PanelWindow {
     anchors.fill: parent
     Rectangle {
       height: parent.height
-      width: workspaceRow.width + 30 
+      implicitWidth: workspaceRow.width + 30 
       radius: 20 
       color: Qt.rgba(0.07, 0, 0.16, 0.3)
       Row {
