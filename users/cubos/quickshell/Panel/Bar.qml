@@ -1,7 +1,5 @@
 import Quickshell
 import Quickshell.Io
-import Quickshell.Wayland
-import Quickshell.Hyprland
 import QtQuick
 import QtQuick.Layouts
 
@@ -20,6 +18,40 @@ PanelWindow {
   property var lastCpuIdle: 0
   property var lastCpuTotal: 0
   readonly property var workspaceSymbols: ["", "", "󰌀", "", "󰄛", "", "", "󱡞", "󰊴", "󰙯", ""]
+
+  /* 
+  ################################################################################################
+  ******************************* !!! PUT THE BAR MODULES HERE !!! ******************************* 
+  ################################################################################################
+  Inside RowLayout
+  */
+  RowLayout {
+    anchors.fill: parent
+    
+    Workspaces {}
+
+    Item { Layout.fillWidth: true }
+
+    Clock {}
+
+    Item { Layout.fillWidth: true }
+
+    StatusWidgets {}
+
+    Item{}
+
+    Tray { barWindow: root  }
+
+    Item {}
+
+    EndButton {}
+  }
+
+  /*
+  ################################################################################################
+  ********************************** !!! END OF BAR MODULES !!! ********************************** 
+  ################################################################################################
+  */
 
   Process {
     id: cpuProc
@@ -63,67 +95,5 @@ PanelWindow {
       cpuProc.running = true
       memProc.running = true
     }
-  }
-
-  RowLayout {
-    anchors.fill: parent
-    /* 
-    ################################################################################################
-    ******************************* !!! PUT THE BAR MODULES HERE !!! ******************************* 
-    ################################################################################################
-    */
-    Workspaces {}
-    Item { Layout.fillWidth: true }
-
-    Rectangle {
-      height: parent.height
-      width: dateRow.width
-      radius: 20 
-      color: Qt.rgba(0.07, 0, 0.16, 0.1)
-      Row {
-        id: dateRow
-        anchors.centerIn: parent // Keep the row centered in the capsule
-        spacing: 12
-        Text {
-          id: clock
-          text: Qt.formatDateTime(new Date(), "    ddd, MMM dd yyyy - HH:mm    ")
-          color: "#d4ff14"
-          font { pixelSize: fontSize; bold: true; family: fontFamily }
-          Timer {
-            interval: 1000
-            running: true
-            repeat: true
-            onTriggered: clock.text = Qt.formatDateTime(new Date(), "    ddd, MMM dd yyyy - HH:mm    ")
-          }
-        }
-      }
-    }
-    Item { Layout.fillWidth: true }
-
-    Rectangle {
-      height: parent.height
-      width: widgetsRow.width + 5
-      radius: 20 
-      color: Qt.rgba(0.07, 0, 0.16, 0.1)
-      Row {
-        id: widgetsRow
-        anchors.centerIn: parent // Keep the row centered in the capsule
-        spacing: 12
-        Text {
-          text: " " + cpuUsage + "%"
-          color: "#d4ff14"
-          font { pixelSize: fontSize; bold: true; family: fontFamily }
-        }
-        Text {
-          text: " " + memoryUsage + "% "
-          color: "#d4ff14"
-          font { pixelSize: fontSize; bold: true; family: fontFamily }
-        }
-      }
-    }
-    Item{}
-    Tray { barWindow: root  }
-    Item {}
-    EndButton {}
   }
 }
