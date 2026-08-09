@@ -4,7 +4,6 @@ import Quickshell.Services.SystemTray
 
 RowLayout {
   id: trayrootlayout
-  
   property var barWindow: null 
   Rectangle {
     height: parent.height
