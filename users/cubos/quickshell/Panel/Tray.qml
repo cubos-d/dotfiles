@@ -12,7 +12,7 @@ RowLayout {
     Row {
       id: trayRow
       anchors.centerIn: parent // Keep the row centered in the capsule
-      spacing: 12
+      spacing: 5
       
       Repeater {
         model: SystemTray.items
