@@ -18,6 +18,7 @@ PanelWindow {
   property var lastCpuIdle: 0
   property var lastCpuTotal: 0
   property string networkStats: ""
+  property string soundStat: ""
   readonly property var workspaceSymbols: ["", "", "󰌀", "", "󰄛", "", "", "󱡞", "󰊴", "󰙯", ""]
 
   /* 
@@ -36,6 +37,10 @@ PanelWindow {
     Clock {}
 
     Item { Layout.fillWidth: true }
+
+    Sound {}
+
+    Item {}
 
     StatusWidgets {}
 
@@ -119,6 +124,20 @@ PanelWindow {
     Component.onCompleted: running = true
   }
 
+  Process {
+    id: soundProc
+    command: ["bash", "-c", "wpctl get-volume @DEFAULT_AUDIO_SINK@"]
+    stdout: SplitParser {
+      onRead: data => {
+        var cleanData = data.trim()
+        var parts = cleanData.split(":")
+        var vol = parts[1] 
+        soundStat = " " + Math.round(vol * 100) + "%"
+      }
+      Component.onCompleted: running = true
+    }
+  }
+
   Timer {
     interval: 1000
     running: true
@@ -127,6 +146,15 @@ PanelWindow {
       cpuProc.running = true
       memProc.running = true
       netwProc.running = true
+    }
+  }
+
+  Timer {
+    interval: 50
+    running: true
+    repeat: true
+    onTriggered: {
+      soundProc.running = true
     }
   }
 }
