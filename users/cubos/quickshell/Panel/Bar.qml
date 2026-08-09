@@ -131,8 +131,17 @@ PanelWindow {
       onRead: data => {
         var cleanData = data.trim()
         var parts = cleanData.split(":")
-        var vol = parts[1] 
-        soundStat = " " + Math.round(vol * 100) + "%"
+        var vol = parseFloat(parts[1])
+        var pct = Math.round(vol * 100)
+
+        // 2. Define icons in clean 25% stepping buckets (0%, 25%, 50%, 75%, 100%)
+        var icons = [" ", " ", " ", " ", " "]
+        
+        // 3. Mathematical mapping: maps 0-100 directly to array indices 0-4 without loop iteration
+        var index = Math.min(Math.ceil(pct / 25), 4)
+        var soundIcon = icons[index]
+
+        soundStat = soundIcon + pct + "%"
       }
       Component.onCompleted: running = true
     }
