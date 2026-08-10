@@ -67,7 +67,6 @@
     zip
     unzip
     _7zz
-    cabextract
   ];
   
 }
