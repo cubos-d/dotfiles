@@ -1,6 +1,6 @@
 
 
-{ pkgs, config, lib, ...}: 
+{ pkgs, config, ...}: 
 let
   storePath = "${config.home.homeDirectory}/.password-store";
 in 

@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports =
@@ -14,36 +14,12 @@
       ./gc.nix
       ./printers.nix
       ./steam.nix
+      ./virtualization.nix
+      ./filemanager.nix
+      ./grub.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.grub.enable = false;
-  #boot.loader.efi.canTouchEfiVariables = true;
   console.keyMap = "la-latin1";
-  #boot.loader = {
-  #  efi = {
-  #    canTouchEfiVariables = true;
-  #  };
-  #  grub = {
-  #    enable = true;
-  #    device = "nodev";
-  #    efiSupport = true;
-  #    extraConfig = ''
-  #      set keymap=la
-  #    '';
-  #  };
-  #};
-
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-    };
-    systemd-boot = {
-      enable = true;
-      consoleMode = "max";
-      configurationLimit = 15;
-    };
-  };
   
   boot.kernelParams = [
     "video=HDMI-A-1:e"
@@ -88,11 +64,8 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.cubos = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "render" "ollama" "libvirt" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "video" "render" "ollama" "kvm" "qemu" "libvirtd"];
     home = "/home/cubos";
-    packages = with pkgs; [
-  #     tree
-    ];
   };
 
   programs.firefox.enable = true;
@@ -103,26 +76,23 @@
     withUWSM = true;
     xwayland.enable = true;
   };
-  programs.dconf.enable = true;
-  services.gvfs.enable = true;
-  services.tumbler.enable = true;
-  programs.thunar = {
+  programs.neovim = {
     enable = true;
-    plugins = with pkgs; [
-      thunar-archive-plugin 
-      thunar-volman 
-      thunar-media-tags-plugin 
-    ];
+    defaultEditor = true;
   };
   nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    curl
     wget
     rocmPackages.rocminfo
     rocmPackages.rocm-smi
     vscodium.fhs
+    gnumake
+    rustc
+    cargo
   ];
   
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -137,10 +107,10 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   # List services that you want to enable:
 

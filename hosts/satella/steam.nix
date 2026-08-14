@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   programs.steam = {
@@ -15,6 +15,7 @@
         stdenv.cc.cc.lib # Provides libstdc++.so.6
         libkrb5
         keyutils
+        mangohud
         # Add other libraries as needed
       ];
       extraArgs = "-cef-disable-gpu-compositing";

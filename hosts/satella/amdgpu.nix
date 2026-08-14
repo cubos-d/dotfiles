@@ -1,5 +1,11 @@
-{ config, pkgs, ... }:
+{ pkgs, inputs, ... }:
 
+let
+  pkgs-unstable = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+    #config.allowUnfree = true; # match your main config if needed
+  };
+in
 {
   boot.initrd.kernelModules = [ "amdgpu" ];
   # 1. Enable standard OpenCL/HIP hardware injection layers
@@ -22,7 +28,7 @@
   # 3. Enable Ollama service with ROCm/AMD acceleration
   services.ollama = {
     enable = true;
-    package = pkgs.ollama-rocm;
+    package = pkgs-unstable.ollama-rocm;
     environmentVariables = {
       HSA_OVERRIDE_GFX_VERSION = "10.3.0";
     };
@@ -32,5 +38,15 @@
     ## radv: an open-source Vulkan driver from freedesktop
     enable = true;
     enable32Bit = true;
+  };
+
+  programs.obs-studio = {
+    enable = true;
+    package = pkgs.obs-studio; 
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-vaapi          # For AMD AMF/VAAPI encoding
+      obs-vkcapture      # For low-overhead Vulkan game capture
+      obs-pipewire-audio-capture # Best for system audio
+    ];
   };
 }

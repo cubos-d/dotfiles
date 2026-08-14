@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   home.username = "cubos";
@@ -15,7 +15,9 @@
     ./homedots/gtk.nix
     ./homedots/dot_links.nix
     ./homedots/homefiles.nix
+    ./nautilus/nautilus.nix
     ./sec/gnupass.nix
+    ../../vms/miku-ubuntu-mate/miku-mate1.nix
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -29,25 +31,24 @@
     btop
     wezterm
     wofi
-    waybar
+    quickshell
     wl-clipboard
     fastfetch
     htop
     starship
     wlogout
-    nerd-fonts.comic-shanns-mono
+    nerd-fonts.comic-shanns-mono #Beautiful font
     eza
     discord
     nwg-look
     nwg-displays
     nwg-wrapper
-    file-roller
     awww
-    yazi
     eom
     vlc
     candy-icons
     sweet-folders
+    sweet
     atril
     libreoffice-still
     hunspellDicts.es_MX
@@ -57,7 +58,15 @@
     pluma
     gscan2pdf
     remmina
-    quickshell
+    grim
+    swappy
+    slurp
+    cm_unicode #ugly fonts for publications
+    newcomputermodern #ugly font for publications
+    llvmPackages.openmp
+    zip
+    unzip
+    _7zz
   ];
   
 }

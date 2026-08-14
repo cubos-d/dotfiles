@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   programs.vscodium = {
@@ -25,10 +25,9 @@
         extensions = with pkgs.vscode-extensions; [
           jnoortheen.nix-ide
           ms-python.python
-          ms-python.vscode-pylance
           ms-vscode.cmake-tools
-          ms-vscode.cpptools
-          ms-vscode.cpptools-extension-pack
+          llvm-vs-code-extensions.vscode-clangd
+          twxs.cmake
           ms-vscode.makefile-tools
           ms-toolsai.jupyter
           ms-toolsai.jupyter-keymap
@@ -51,19 +50,40 @@
             version = "5.36.1";
             sha256 = "sha256-1yxTjIsyj8o97VlvDlWqPCNIxd6XgbjpqF5qNbVtEwg=";
           }
+          {
+            name = "qt-core";
+            publisher = "TheQtCompany";
+            version = "1.15.1";
+            sha256 = "sha256-KOQPOsoEbNkdSTbLAVmCQiy9G3bguxU+ZMNC761PzPw=";
+          }
+          {
+            name = "qt-qml";
+            publisher = "TheQtCompany";
+            version = "1.15.1";
+            sha256 = "sha256-pHWqTvuWJKm6Mmt5ycR9C69v+ANgu1tXCNtzliR/dHA=";
+          }
         ];
         userSettings = {
+          "nix.enableLanguageServer" = true;
+          "nix.serverPath"= "nil";
           "workbench.colorTheme" = "Amethyst Dark (Higher Contrast)";
           "editor.fontSize" = 14;
           "editor.fontFamily" = "ComicShannsMono Nerd Font";
           "terminal.integrated.fontFamily" = "ComicShannsMono Nerd Font";
           "terminal.integrated.fontSize" = 14;
-          "editor.tabSize" = 4;
+          "editor.tabSize" = 2;
           "editor.insertSpaces" = true;
           "terminal.integrated.cursorStyle"= "line";
           "workbench.iconTheme" = "material-icon-theme";
           "material-icon-theme.folders.color" = "#a9a108";
           "material-icon-theme.rootFolders.color" = "#de3a08";
+          "python.languageServer" = "Jedi";
+          "cmake.exportCompileCommandsFile" = true;
+          "workbench.editorAssociations" = {
+            "*.qrc" = "qt-core.qrcEditor";
+          };
+          "qt-qml.doNotAskForQmllsDownload" = true;
+          "qt-core.showWelcomePageOnActivation" = false;
         };
         keybindings = [
           {
@@ -71,7 +91,6 @@
             command = "workbench.action.terminal.focus";
             when = "editorTextFocus";
           }
-          
           {
             key = "ctrl+up";
             command = "workbench.action.focusActiveEditorGroup";
@@ -81,4 +100,10 @@
       };
     };
   };
+  home.packages = with pkgs; [
+    nil
+    llvmPackages.clang-tools
+    gdb
+    rust-analyzer
+  ];
 }

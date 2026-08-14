@@ -4,6 +4,7 @@
   inputs = {
     # System base tracked on the stable branch (adjust version if yours differs)
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -29,6 +30,12 @@
           }
         ];
       };
+
+      vivy = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./vms/vivy/qtile-vm.nix ]; 
+      };
+
     };
   };
 }

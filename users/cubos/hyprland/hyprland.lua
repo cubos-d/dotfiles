@@ -29,7 +29,7 @@ hl.monitor({
 
 -- Set programs that you use
 local terminal    = "wezterm"
-local fileManager = "thunar"
+local fileManager = "nautilus --new-window"
 local menu        = "wofi --show drun"
 local gui_text_editor = "codium"
 
@@ -46,7 +46,7 @@ local gui_text_editor = "codium"
 hl.on("hyprland.start", function () 
    --hl.exec_cmd(terminal)
    hl.exec_cmd("nm-applet")
-   hl.exec_cmd("waybar")
+   hl.exec_cmd("quickshell")
    hl.exec_cmd("awww-daemon")
 end)
 
@@ -107,8 +107,8 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 10,
-        rounding_power = 2,
+        rounding       = 20,
+        rounding_power = 3,
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
@@ -127,7 +127,7 @@ hl.config({
             passes    = 3, --2,
 	        new_optimizations = true,
             contrast = 1.5,
-            vibrancy  = 0.1696,
+            vibrancy  = 1,
 	        vibrancy_darkness = 1,
         },
 
@@ -289,6 +289,8 @@ hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.move({ direction = "l" }))
 hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ direction = "r" }))
 hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.move({ direction = "u" }))
 hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.move({ direction = "d" }))
+hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'))
+hl.bind("SUPER + Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
 
 
 
@@ -313,12 +315,12 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"),      { locked = true, repeating = true })
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     { locked = true, repeating = true })
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                  { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 2%+"),                  { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 2%-"),                  { locked = true, repeating = true })
 
 -- Requires playerctl
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
@@ -376,20 +378,22 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
-
+-- #********** Transparency for bars ***************
 hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
+hl.layer_rule({ 
+    match = { namespace = "quickshell" }, 
+    blur = true,
+    ignore_alpha = 0.05,
+})
 hl.layer_rule({
   match        = { namespace = "wofi" },
   blur         = true,
   ignore_alpha = 0.5,
 })
 
- -- #********* Transparency for file Manager ***********
-hl.window_rule({ match = { class = fileManager }, opacity = "0.83 0.9 0.83"})
-hl.layer_rule({ match = {namespace = fileManager}, blur = true, ignore_alpha = 1})
 -- #********** Transparency for vscode ***************
-hl.window_rule({ match = { class = gui_text_editor}, opacity = "0.9 0.9 0.9" })
+hl.window_rule({ match = { class = gui_text_editor}, opacity = "0.85 0.9 0.85" })
 hl.layer_rule({ match = {namespace = gui_text_editor}, blur = true})
 -- #********** Transparency for discord **************
-hl.window_rule({ match = { class = "discord"}, opacity = "0.8 0.9 0.8" })
+hl.window_rule({ match = { class = "discord"}, opacity = "0.8 0.9 1.0" })
 hl.layer_rule({ match = {namespace = "discord"}, blur = true})

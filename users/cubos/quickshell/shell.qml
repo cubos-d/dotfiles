@@ -1,4 +1,8 @@
+//@ pragma UseQApplication
 import Quickshell
-import QtQuick
+import Quickshell.Io
+import "Panel"
 
-// Hello!
+ShellRoot {
+  Bar {}
+}

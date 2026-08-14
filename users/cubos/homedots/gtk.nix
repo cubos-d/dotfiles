@@ -1,18 +1,14 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
-let
-  themeName = "ChromeOS-Darker-UltraViolet-Rounded";
-  chrome-os-dark = import ./gtk-theme.nix { inherit pkgs; }; 
-in
 {
   gtk = {
     enable = true;
     theme = {
-      name = themeName; 
-      package = chrome-os-dark;
+      name = "Sweet-Dark-v40"; 
+      package = pkgs.sweet;
     };
     iconTheme = {
-      name = "Sweet-Purple-Filled";
+      name = "Sweet-Yellow-Filled";
       package = pkgs.sweet-folders;
     };
     gtk3 = {
@@ -20,10 +16,10 @@ in
         gtk-font-name = "ComicShannsMono Nerd Font";
       };
     };
-  };
-
-  home.file.".local/share/themes/${themeName}" = {
-    source = "${chrome-os-dark}/share/themes/${themeName}";
+    gtk4.extraConfig = {
+      gtk-font-name= "ComicShannsMono Nerd Font";
+      gtk-application-prefer-dark-theme = 0;
+    };
   };
 
   qt = {

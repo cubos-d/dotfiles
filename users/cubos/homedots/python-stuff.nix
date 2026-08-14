@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = [
@@ -7,6 +7,7 @@
       numpy
       scipy
       matplotlib
+      tkinter
     ]))
   ];
 }
