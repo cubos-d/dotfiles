@@ -50,18 +50,6 @@
             version = "5.36.1";
             sha256 = "sha256-1yxTjIsyj8o97VlvDlWqPCNIxd6XgbjpqF5qNbVtEwg=";
           }
-          {
-            name = "qt-core";
-            publisher = "TheQtCompany";
-            version = "1.15.1";
-            sha256 = "sha256-KOQPOsoEbNkdSTbLAVmCQiy9G3bguxU+ZMNC761PzPw=";
-          }
-          {
-            name = "qt-qml";
-            publisher = "TheQtCompany";
-            version = "1.15.1";
-            sha256 = "sha256-pHWqTvuWJKm6Mmt5ycR9C69v+ANgu1tXCNtzliR/dHA=";
-          }
         ];
         userSettings = {
           "nix.enableLanguageServer" = true;
@@ -79,11 +67,6 @@
           "material-icon-theme.rootFolders.color" = "#de3a08";
           "python.languageServer" = "Jedi";
           "cmake.exportCompileCommandsFile" = true;
-          "workbench.editorAssociations" = {
-            "*.qrc" = "qt-core.qrcEditor";
-          };
-          "qt-qml.doNotAskForQmllsDownload" = true;
-          "qt-core.showWelcomePageOnActivation" = false;
         };
         keybindings = [
           {
