@@ -46,8 +46,7 @@ local gui_text_editor = "codium"
 hl.on("hyprland.start", function () 
    --hl.exec_cmd(terminal)
    hl.exec_cmd("nm-applet")
-   hl.exec_cmd("quickshell")
-   hl.exec_cmd("awww-daemon")
+   hl.exec_cmd("noctalia")
 end)
 
 
@@ -380,11 +379,11 @@ hl.window_rule({
 })
 -- #********** Transparency for bars ***************
 hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
-hl.layer_rule({ 
-    match = { namespace = "quickshell" }, 
-    blur = true,
-    ignore_alpha = 0.05,
-})
+--hl.layer_rule({ 
+--    match = { namespace = "quickshell" }, 
+--    blur = true,
+--    ignore_alpha = 0.05,
+--})
 hl.layer_rule({
   match        = { namespace = "wofi" },
   blur         = true,
