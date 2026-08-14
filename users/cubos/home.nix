@@ -1,5 +1,11 @@
 { pkgs, inputs, ... }:
 
+let
+  pkgs-unstable = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+    #config.allowUnfree = true; # match your main config if needed
+  };
+in
 {
   home.username = "cubos";
   home.homeDirectory = "/home/cubos";
@@ -19,6 +25,7 @@
     ./sec/gnupass.nix
     ../../vms/miku-ubuntu-mate/miku-mate1.nix
   ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
@@ -67,6 +74,7 @@
     zip
     unzip
     _7zz
+    pkgs-unstable.noctalia
   ];
   
 }

@@ -28,7 +28,7 @@
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
-
+  hardware.bluetooth.enable = true;
   # Set your time zone.
   time.timeZone = "America/Bogota";
 
@@ -80,6 +80,7 @@
     enable = true;
     defaultEditor = true;
   };
+
   nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
