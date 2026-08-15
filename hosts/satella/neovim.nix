@@ -1,4 +1,4 @@
-{ pkgs,  ... }:
+{ ... }:
 
 {
   programs.neovim = {
@@ -6,12 +6,5 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
-
-    extraPackages = with pkgs; [
-      xclip
-      wl-clipboard
-      luajitPackages.lua-lsp
-      rnix-lsp
-    ];
   };
 }
