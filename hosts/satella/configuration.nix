@@ -17,6 +17,7 @@
       ./virtualization.nix
       ./filemanager.nix
       ./grub.nix
+      ./neovim.nix
     ];
 
   console.keyMap = "la-latin1";
@@ -76,16 +77,11 @@
     withUWSM = true;
     xwayland.enable = true;
   };
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
 
   nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     curl
     wget
     rocmPackages.rocminfo
@@ -94,6 +90,7 @@
     gnumake
     rustc
     cargo
+    wl-clipboard
   ];
   
   nix.settings.experimental-features = ["nix-command" "flakes"];

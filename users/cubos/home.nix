@@ -35,22 +35,16 @@ in
   # User specific packages go here instead of configuration.nix
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
-    btop
     wezterm
     wofi
-    quickshell
-    wl-clipboard
     fastfetch
     htop
     starship
-    wlogout
     nerd-fonts.comic-shanns-mono #Beautiful font
     eza
     discord
     nwg-look
     nwg-displays
-    nwg-wrapper
-    awww
     eom
     vlc
     candy-icons
@@ -62,7 +56,6 @@ in
     hunspellDicts.es_CO
     hunspellDicts.es_ES
     hunspellDicts.en_US
-    pluma
     gscan2pdf
     remmina
     grim
