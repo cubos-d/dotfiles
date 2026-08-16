@@ -377,22 +377,27 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
--- #********** Transparency for bars ***************
-hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
---hl.layer_rule({ 
---    match = { namespace = "quickshell" }, 
---    blur = true,
---    ignore_alpha = 0.05,
---})
+
 hl.layer_rule({
   match        = { namespace = "wofi" },
   blur         = true,
   ignore_alpha = 0.5,
 })
 
+hl.window_rule({ 
+    match = { 
+        class = "papers", 
+    }, 
+    float = true, 
+    center = true, 
+    no_max_size = true,
+    pseudo = true,
+    size = {800, 300}
+})
+
 -- #********** Transparency for vscode ***************
-hl.window_rule({ match = { class = gui_text_editor}, opacity = "0.85 0.9 0.85" })
-hl.layer_rule({ match = {namespace = gui_text_editor}, blur = true})
+hl.window_rule({ match = { class = gui_text_editor }, opacity = "0.85 0.9 0.85" })
+hl.layer_rule({ match = { namespace = gui_text_editor }, blur = true})
 -- #********** Transparency for discord **************
 hl.window_rule({ match = { class = "discord"}, opacity = "0.8 0.9 1.0" })
 hl.layer_rule({ match = {namespace = "discord"}, blur = true})

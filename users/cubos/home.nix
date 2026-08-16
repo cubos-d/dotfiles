@@ -3,7 +3,6 @@
 let
   pkgs-unstable = import inputs.nixpkgs-unstable {
     system = pkgs.stdenv.hostPlatform.system;
-    #config.allowUnfree = true; # match your main config if needed
   };
 in
 {
@@ -26,10 +25,20 @@ in
     ../../vms/miku-ubuntu-mate/miku-mate1.nix
   ];
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ 
+      pkgs.xdg-desktop-portal-gtk 
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland 
+    ];
+    config.common.default = [ "gtk" "hyprland" ];
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     xwayland.enable = true;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
   # User specific packages go here instead of configuration.nix
@@ -50,7 +59,8 @@ in
     candy-icons
     sweet-folders
     sweet
-    atril
+    papers
+    evince
     libreoffice-still
     hunspellDicts.es_MX
     hunspellDicts.es_CO
