@@ -384,6 +384,18 @@ hl.layer_rule({
   ignore_alpha = 0.5,
 })
 
+hl.window_rule({ 
+    match = { 
+        class = "papers",
+        title = "Print"
+    }, 
+    float = true,
+    center = true,
+    no_max_size = true,
+    pseudo = true,
+    size = {"monitor_w * 0.3", "monitor_h * 0.3"}
+})
+
 -- #********** Transparency for vscode ***************
 hl.window_rule({ match = { class = gui_text_editor }, opacity = "0.85 0.9 0.85" })
 hl.layer_rule({ match = { namespace = gui_text_editor }, blur = true})

@@ -25,14 +25,14 @@ in
     ../../vms/miku-ubuntu-mate/miku-mate1.nix
   ];
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ 
-      pkgs.xdg-desktop-portal-gtk 
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland 
-    ];
-    config.common.default = [ "gtk" "hyprland" ];
-  };
+  #xdg.portal = {
+  #  enable = true;
+  #  extraPortals = [ 
+  #    pkgs.xdg-desktop-portal-gtk 
+  #    inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland 
+  #  ];
+  #  config.common.default = [ "hyprland" "gtk" ];
+  #};
 
   wayland.windowManager.hyprland = {
     enable = true;
