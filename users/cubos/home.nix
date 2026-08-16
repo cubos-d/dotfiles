@@ -78,6 +78,7 @@ in
     unzip
     _7zz
     pkgs-unstable.noctalia
+    pluma
   ];
   
 }
