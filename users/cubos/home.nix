@@ -79,6 +79,8 @@ in
     _7zz
     pkgs-unstable.noctalia
     pluma
+    amberol
+    planify
   ];
   
 }
