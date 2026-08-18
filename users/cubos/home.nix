@@ -73,7 +73,6 @@ in
     slurp
     cm_unicode #ugly fonts for publications
     newcomputermodern #ugly font for publications
-    llvmPackages.openmp
     zip
     unzip
     _7zz
