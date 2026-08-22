@@ -87,7 +87,6 @@
     rocmPackages.rocminfo
     rocmPackages.rocm-smi
     llvmPackages.openmp
-    vscodium.fhs
     gnumake
     rustc
     cargo

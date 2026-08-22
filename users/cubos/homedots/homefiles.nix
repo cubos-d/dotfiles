@@ -8,12 +8,6 @@
     };
   }; 
   home.file = {
-    # This creates the directory structure and the symlink automatically
-    ".continue/config.yaml" = {
-      source = config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/vscode/continue/config.yaml";
-    };
-  }; 
-  home.file = {
     ".local/share/themes/.keep" = {
       text = "";
     };

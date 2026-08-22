@@ -22,6 +22,7 @@
       export AMD_SERIALIZE_KERNEL=3
       export UV_PYTHON=3.14
       export KERAS_BACKEND="torch"
+      export PATH="$PATH:/home/cubos/.local/bin"
       eval "$(starship init bash)"
     '';
   };
