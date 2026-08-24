@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  programs.vscodium = {
+  programs.vscode = {
     enable = true;
     profiles = {
       default = {
@@ -9,7 +9,7 @@
           jnoortheen.nix-ide
           ms-vscode.cmake-tools
           ms-python.python
-          ms-pyright.pyright
+          ms-python.vscode-pylance
           llvm-vs-code-extensions.vscode-clangd
           twxs.cmake
           ms-vscode.makefile-tools
@@ -48,7 +48,7 @@
           "cmake.exportCompileCommandsFile" = true;
           "telemetry.telemetryLevel" = "off";
           "workbench.startupEditor" = "none";
-          "python.languageServer" = "Pyright";
+          "python.languageServer" = "Pylance";
         };
         keybindings = [
           {

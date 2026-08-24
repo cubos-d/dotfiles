@@ -7,7 +7,7 @@
     shellAliases = {
       ls = "eza --group-directories-first --icons -lhg";
       cp = "cp --verbose";
-      code = "codium";
+      #code = "codium";
       killall = "pkill";
     };
 
