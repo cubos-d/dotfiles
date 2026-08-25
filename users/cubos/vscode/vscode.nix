@@ -46,9 +46,14 @@
           "material-icon-theme.folders.color" = "#a9a108";
           "material-icon-theme.rootFolders.color" = "#de3a08";
           "cmake.exportCompileCommandsFile" = true;
-          "telemetry.telemetryLevel" = "off";
           "workbench.startupEditor" = "none";
           "python.languageServer" = "Pylance";
+          "telemetry.telemetryLevel" = "off";
+          "errorTelemetry.enabled" = false;
+          "crashReporter.enabled" = false;
+          "workbench.enableExperiments" = false;
+          "github.copilot.enable" =  { "*" = false; };
+          "workbench.welcomePage.walkthroughs.enabled" = false;
         };
         keybindings = [
           {
