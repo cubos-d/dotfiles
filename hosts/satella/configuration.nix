@@ -17,7 +17,6 @@
       ./virtualization.nix
       ./filemanager.nix
       ./grub.nix
-      ./neovim.nix
     ];
 
   console.keyMap = "la-latin1";

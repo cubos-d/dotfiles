@@ -10,6 +10,7 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs"; # Forces home-manager to match system packages
     };
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {

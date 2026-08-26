@@ -22,6 +22,7 @@ in
     ./homedots/homefiles.nix
     ./nautilus/nautilus.nix
     ./sec/gnupass.nix
+    ./nvim/nvf.nix
     ../../vms/miku-ubuntu-mate/miku-mate1.nix
   ];
 
