@@ -14,6 +14,7 @@ in
   programs.home-manager.enable = true;
   # Imports user-specific modular apps
   imports = [
+    inputs.nvf.homeManagerModules.default
     ./homedots/bash.nix
     ./homedots/python-stuff.nix
     ./vscode/vscode.nix

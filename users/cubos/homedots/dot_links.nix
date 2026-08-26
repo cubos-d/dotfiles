@@ -24,6 +24,6 @@
   xdg.configFile."gtk-4.0/gtk.css".source = ./gtk-4.0/gtk.css;
   xdg.configFile."gtk-4.0/gtk-dark.css".source = ./gtk-4.0/gtk-dark.css;
   # *=_=_=_=_=_=_=_=_=_=_= nvim =_=_=_=_=_=_=_=_=_=_=*
-  xdg.configFile."nvim/".source =
-    config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/nvim";
+  #xdg.configFile."nvim/".source =
+  #  config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/nvim";
 }
