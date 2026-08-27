@@ -26,4 +26,6 @@
   # *=_=_=_=_=_=_=_=_=_=_= nvim =_=_=_=_=_=_=_=_=_=_=*
   #xdg.configFile."nvim/".source =
   #  config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/nvim";
+  xdg.configFile."kitty/".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/kitty";
 }
