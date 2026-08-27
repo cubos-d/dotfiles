@@ -30,8 +30,9 @@
         };
         theme = {
           enable = true;
-          name = "gruvbox";
-          style = "dark";
+          name = "tokyonight";
+          style = "storm";
+          transparent = true;
         };
         languages = {
           enableTreesitter = true;
