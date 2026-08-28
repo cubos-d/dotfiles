@@ -83,6 +83,7 @@ in
     pluma
     amberol
     planify
+    pkgs-unstable.opencode
   ];
   
 }

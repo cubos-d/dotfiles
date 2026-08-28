@@ -22,6 +22,10 @@
           mouse = "a";
           numberwidth = 1;
         };
+        clipboard = {
+          enable = true;
+          registers = "unnamedplus"; # Sync standard yank/paste with system clipboard
+        };
         globals = {
           mapleader = " ";
         };
