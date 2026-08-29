@@ -27,5 +27,5 @@
   xdg.configFile."kitty/".source =
     config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/kitty";
   xdg.configFile."opencode/opencode.jsonc".source =
-    config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/development/opencode.jsonc"; 
+    config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/development/opencode.jsonc";
 }
