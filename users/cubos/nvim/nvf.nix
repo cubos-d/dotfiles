@@ -34,8 +34,8 @@
         };
         theme = {
           enable = true;
-          name = "tokyonight";
-          style = "storm";
+          name = "rose-pine";
+          style = "moon";
           transparent = true;
         };
         filetree = {
