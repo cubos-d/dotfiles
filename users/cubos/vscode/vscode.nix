@@ -1,41 +1,21 @@
 { pkgs, ... }:
 
 {
-  programs.vscodium = {
+  programs.vscode = {
     enable = true;
-    package = pkgs.vscodium.fhsWithPackages (ps: with ps; [
-      # --- Your Original Additions ---
-      rustup
-      zlib
-      # --- C/C++ Developer Environment Tools ---
-      gcc            # Compilers for standard binary compilation
-      gnumake        # Base requirement for 'makefile-tools' extension
-      cmake          # Base requirement for 'cmake-tools' extension
-      glibc          # Critical header references for C library compilation
-      # --- Python & General Language Tooling ---
-      python3        # Underlying python execution environment
-      stdenv.cc.cc   # Essential libstdc++.so.6 references for Pylance/Rust-analyzer
-      # --- Graphic Tooling / Vibrancy Support ---
-      mesa           # Handles hardware-accelerated rendering layers under Wayland/X11
-      libGL          # Graphics library access for Electron transparency layers
-      icu            # Text/Unicode layout parsing tools used by Electron extensions
-    ]);
     profiles = {
       default = {
         extensions = with pkgs.vscode-extensions; [
           jnoortheen.nix-ide
-          ms-python.python
           ms-vscode.cmake-tools
+          ms-python.python
+          ms-python.vscode-pylance
           llvm-vs-code-extensions.vscode-clangd
           twxs.cmake
           ms-vscode.makefile-tools
           ms-toolsai.jupyter
-          ms-toolsai.jupyter-keymap
-          ms-toolsai.jupyter-renderers
-          ms-toolsai.vscode-jupyter-cell-tags
-          ms-toolsai.vscode-jupyter-slideshow
           rust-lang.rust-analyzer
-          continue.continue
+          saoudrizwan.claude-dev
           davidanson.vscode-markdownlint
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
@@ -49,18 +29,6 @@
             publisher = "PKief";
             version = "5.36.1";
             sha256 = "sha256-1yxTjIsyj8o97VlvDlWqPCNIxd6XgbjpqF5qNbVtEwg=";
-          }
-          {
-            name = "qt-core";
-            publisher = "TheQtCompany";
-            version = "1.15.1";
-            sha256 = "sha256-KOQPOsoEbNkdSTbLAVmCQiy9G3bguxU+ZMNC761PzPw=";
-          }
-          {
-            name = "qt-qml";
-            publisher = "TheQtCompany";
-            version = "1.15.1";
-            sha256 = "sha256-pHWqTvuWJKm6Mmt5ycR9C69v+ANgu1tXCNtzliR/dHA=";
           }
         ];
         userSettings = {
@@ -77,13 +45,15 @@
           "workbench.iconTheme" = "material-icon-theme";
           "material-icon-theme.folders.color" = "#a9a108";
           "material-icon-theme.rootFolders.color" = "#de3a08";
-          "python.languageServer" = "Jedi";
           "cmake.exportCompileCommandsFile" = true;
-          "workbench.editorAssociations" = {
-            "*.qrc" = "qt-core.qrcEditor";
-          };
-          "qt-qml.doNotAskForQmllsDownload" = true;
-          "qt-core.showWelcomePageOnActivation" = false;
+          "workbench.startupEditor" = "none";
+          "python.languageServer" = "Pylance";
+          "telemetry.telemetryLevel" = "off";
+          "errorTelemetry.enabled" = false;
+          "crashReporter.enabled" = false;
+          "workbench.enableExperiments" = false;
+          "github.copilot.enable" =  { "*" = false; };
+          "workbench.welcomePage.walkthroughs.enabled" = false;
         };
         keybindings = [
           {

@@ -28,7 +28,7 @@
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
-
+  hardware.bluetooth.enable = true;
   # Set your time zone.
   time.timeZone = "America/Bogota";
 
@@ -76,23 +76,21 @@
     withUWSM = true;
     xwayland.enable = true;
   };
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
+
   nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     curl
     wget
     rocmPackages.rocminfo
     rocmPackages.rocm-smi
-    vscodium.fhs
+    llvmPackages.openmp
     gnumake
     rustc
     cargo
+    wl-clipboard
   ];
   
   nix.settings.experimental-features = ["nix-command" "flakes"];
