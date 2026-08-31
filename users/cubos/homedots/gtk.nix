@@ -11,6 +11,10 @@
       name = "Sweet-Yellow-Filled";
       package = pkgs.sweet-folders;
     };
+    font = {
+      name = "ComicShannsMono Nerd Font";
+      size = 11; # Specify your preferred default font size
+    };
     gtk3 = {
       extraConfig = {
         gtk-font-name = "ComicShannsMono Nerd Font";

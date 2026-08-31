@@ -31,7 +31,7 @@ hl.monitor({
 local terminal    = "wezterm"
 local fileManager = "nautilus --new-window"
 local menu        = "wofi --show drun"
-local gui_text_editor = "codium"
+local gui_text_editor = "code"
 
 
 -------------------
@@ -46,8 +46,7 @@ local gui_text_editor = "codium"
 hl.on("hyprland.start", function () 
    --hl.exec_cmd(terminal)
    hl.exec_cmd("nm-applet")
-   hl.exec_cmd("quickshell")
-   hl.exec_cmd("awww-daemon")
+   hl.exec_cmd("noctalia")
 end)
 
 
@@ -378,22 +377,28 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
--- #********** Transparency for bars ***************
-hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
-hl.layer_rule({ 
-    match = { namespace = "quickshell" }, 
-    blur = true,
-    ignore_alpha = 0.05,
-})
+
 hl.layer_rule({
   match        = { namespace = "wofi" },
   blur         = true,
   ignore_alpha = 0.5,
 })
 
+hl.window_rule({ 
+    match = { 
+        class = "papers",
+        title = "Print"
+    }, 
+    float = true,
+    center = true,
+    no_max_size = true,
+    pseudo = true,
+    size = {"monitor_w * 0.3", "monitor_h * 0.3"}
+})
+
 -- #********** Transparency for vscode ***************
-hl.window_rule({ match = { class = gui_text_editor}, opacity = "0.85 0.9 0.85" })
-hl.layer_rule({ match = {namespace = gui_text_editor}, blur = true})
+hl.window_rule({ match = { class = gui_text_editor }, opacity = "0.85 0.85 0.85" })
+hl.layer_rule({ match = { namespace = gui_text_editor }, blur = true})
 -- #********** Transparency for discord **************
 hl.window_rule({ match = { class = "discord"}, opacity = "0.8 0.9 1.0" })
 hl.layer_rule({ match = {namespace = "discord"}, blur = true})

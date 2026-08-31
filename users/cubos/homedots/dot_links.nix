@@ -14,13 +14,18 @@
     config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/starship/starship.toml";
   xdg.configFile."wezterm/wezterm.lua".source = 
     config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/wezterm/wezterm.lua";
-  # *=_=_=_=_=_=_=_=_=_=_= quickshell =_=_=_=_=_=_=_=_=_=_=*
-  xdg.configFile."quickshell/".source = 
-    config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/quickshell";
+  # *=_=_=_=_=_=_=_=_=_=_= shell =_=_=_=_=_=_=_=_=_=_=*
+  xdg.configFile."noctalia/".source = 
+    config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/noctalia";
   # *=_=_=_=_=_=_=_=_=_=_= screenshot utilities =_=_=_=_=_=_=_=_=_=_=*
   xdg.configFile."swappy/config".source = 
     config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/recording/swappy/config.txt";
   # *=_=_=_=_=_=_=_=_=_=_= gtk4.0 stuff =_=_=_=_=_=_=_=_=_=_=*
   xdg.configFile."gtk-4.0/gtk.css".source = ./gtk-4.0/gtk.css;
   xdg.configFile."gtk-4.0/gtk-dark.css".source = ./gtk-4.0/gtk-dark.css;
+  # *=_=_=_=_=_=_=_=_=_=_= nvim =_=_=_=_=_=_=_=_=_=_=*
+  xdg.configFile."kitty/".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/kitty";
+  xdg.configFile."opencode/opencode.jsonc".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/cubos/dotfiles/users/cubos/development/opencode.jsonc";
 }

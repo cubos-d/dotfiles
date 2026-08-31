@@ -12,7 +12,7 @@ config.default_cursor_style = "BlinkingBar" -- Options: SteadyBar, BlinkingBar
 
 -- 3. Set Window Opacity and Blur
 config.window_background_opacity = 0.75 -- 0.0 (transparent) to 1.0 (opaque)
-config.macos_window_background_blur = 20 -- Optional: Applies blur on systems that support it
+-- config.macos_window_background_blur = 20 -- Optional: Applies blur on systems that support it
 
 -- Tab bar configs
 config.window_frame = {
@@ -22,6 +22,7 @@ config.window_frame = {
     inactive_titlebar_fg = '#cccccc',
     button_bg = "rgba(110, 7, 7, 0.61)"
 }
+config.enable_tab_bar = false
 
 config.colors = {
   background = bg_color,
