@@ -31,7 +31,9 @@
         };
         lsp = {
           enable = true;
+          lspconfig.enable = true;
         };
+        ui.noice.enable = true;
         theme = {
           enable = true;
           name = "rose-pine";
