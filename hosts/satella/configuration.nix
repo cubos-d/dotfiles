@@ -3,7 +3,11 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { pkgs, inputs, ... }:
-
+let
+  pkgs-unstable = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+  };
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -87,9 +91,9 @@
     rocmPackages.rocminfo
     rocmPackages.rocm-smi
     llvmPackages.openmp
-    gnumake
-    rustc
-    cargo
+    pkgs-unstable.gnumake
+    pkgs-unstable.rustc
+    pkgs-unstable.cargo
     wl-clipboard
   ];
   
