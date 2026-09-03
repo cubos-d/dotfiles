@@ -91,7 +91,7 @@ in
     rocmPackages.rocminfo
     rocmPackages.rocm-smi
     llvmPackages.openmp
-    pkgs-unstable.gnumake
+    gnumake
     pkgs-unstable.rustc
     pkgs-unstable.cargo
     wl-clipboard
