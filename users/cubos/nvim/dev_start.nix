@@ -16,8 +16,8 @@
       # 3. If packages are defined, type the nix-shell command into both new panes
       if [ -n "$IN_NIX_SHELL" ]; then
           # \n at the end simulates pressing Enter
-          printf "nix-shell %s\n" | wezterm cli send-text --pane-id "$RIGHT_PANE"
-          printf "nix-shell %s\n" | wezterm cli send-text --pane-id "$BOTTOM_PANE"
+          printf "nix develop --offline %s\n" | wezterm cli send-text --pane-id "$RIGHT_PANE"
+          printf "nix develop --offline %s\n" | wezterm cli send-text --pane-id "$BOTTOM_PANE"
       fi
       printf "opencode . %s\n" | wezterm cli send-text --pane-id "$RIGHT_PANE"
     '')
