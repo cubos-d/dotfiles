@@ -19,7 +19,7 @@
           printf "nix develop --offline %s\n" | wezterm cli send-text --pane-id "$RIGHT_PANE"
           printf "nix develop --offline %s\n" | wezterm cli send-text --pane-id "$BOTTOM_PANE"
       fi
-      printf "opencode . %s\n" | wezterm cli send-text --pane-id "$RIGHT_PANE"
+      #printf "opencode . %s\n" | wezterm cli send-text --pane-id "$RIGHT_PANE"
     '')
   ];
 }

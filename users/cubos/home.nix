@@ -83,7 +83,8 @@ in
     pluma
     amberol
     planify
-    pkgs-unstable.opencode
+    #pkgs-unstable.opencode PROHIBITED UNTIL CONTAINERIZED
+    #pkgs-unstable.gnome-maps
   ];
   
 }
