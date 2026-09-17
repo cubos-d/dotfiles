@@ -38,5 +38,5 @@ config.colors = {
   },
 }
 
-config.color_scheme = "Noctalia"
+config.color_scheme = "Default"
 return config
