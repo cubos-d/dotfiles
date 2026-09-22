@@ -84,7 +84,8 @@ in
     amberol
     planify
     #pkgs-unstable.opencode PROHIBITED UNTIL CONTAINERIZED
-    #pkgs-unstable.gnome-maps
+    pkgs-unstable.video-downloader
+    pkgs-unstable.yt-dlp
   ];
   
 }
