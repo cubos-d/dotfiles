@@ -10,6 +10,7 @@ $hostname\
 $directory\
 [](bg:red fg:peach)\
 $git_branch\
+$git_commit\
 $git_status\
 [](fg:red bg:blue)\
 $c\
@@ -22,6 +23,7 @@ $kotlin\
 $haskell\
 $python\
 [](fg:blue bg:black)\
+$aws\
 $time\
 [](fg:black bg:purple)\
 [ 󰄻 ](bg:purple)\
@@ -89,12 +91,38 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:yellow"
-format = '[[ $symbol $branch ](fg:crust bg:red)]($style)'
+only_attached = true
+style = "bg:green fg:crust"
+format = "[[](fg:red bg:green) $symbol $branch [](fg:green bg:red)]($style)"
+
+[git_commit]
+only_detached = true
+tag_disabled = false
+tag_max_candidates = 0
+tag_symbol = "🏷 "
+format = "[[](fg:red bg:black)$tag[](fg:black bg:red)]($style)"
+style = "bold green"
 
 [git_status]
-style = "bg:yellow"
-format = '[[($all_status$ahead_behind )](fg:crust bg:red)]($style)'
+format = "[[](fg:red bg:yellow)($all_status$ahead_behind)[](fg:yellow bg:red)]($style)"
+style = "bg:yellow fg:crust"
+conflicted = "=${count}"
+untracked = "?${count}"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+stashed = ""
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = ""
+
+[aws]
+symbol = "☁ "
+format = "[[](fg:black)$symbol$profile[](fg:gray bg:black)]($style)"
+style = "bold yellow"
+force_display = true
 
 [nodejs]
 symbol = ""
@@ -244,6 +272,7 @@ sapphire = "#209fb5"
 blue = "#1e66f5"
 lavender = "#7287fd"
 text = "#4c4f69"
+gray = "#1e1e1e"
 subtext1 = "#5c5f77"
 subtext0 = "#6c6f85"
 overlay2 = "#7c7f93"
