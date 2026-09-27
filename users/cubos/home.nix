@@ -81,7 +81,6 @@ in
     _7zz
     pkgs-unstable.noctalia
     pluma
-    amberol
     planify
     #pkgs-unstable.opencode PROHIBITED UNTIL CONTAINERIZED
     pkgs-unstable.video-downloader
