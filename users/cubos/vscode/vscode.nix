@@ -17,6 +17,7 @@
           rust-lang.rust-analyzer
           saoudrizwan.claude-dev
           davidanson.vscode-markdownlint
+          mechatroner.rainbow-csv
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
             name = "amethyst-theme";
