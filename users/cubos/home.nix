@@ -85,6 +85,7 @@ in
     #pkgs-unstable.opencode PROHIBITED UNTIL CONTAINERIZED
     pkgs-unstable.video-downloader
     pkgs-unstable.yt-dlp
+    pkgs-unstable.clementine
   ];
   
 }
