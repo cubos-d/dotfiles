@@ -64,7 +64,7 @@ in
     sweet-folders
     papers
     evince
-    libreoffice-still
+    libreoffice-stable
     hunspellDicts.es_MX
     hunspellDicts.es_CO
     hunspellDicts.es_ES
@@ -79,13 +79,13 @@ in
     zip
     unzip
     _7zz
-    pkgs-unstable.noctalia
+    noctalia
     pluma
     planify
     #pkgs-unstable.opencode PROHIBITED UNTIL CONTAINERIZED
-    pkgs-unstable.video-downloader
-    pkgs-unstable.yt-dlp
-    pkgs-unstable.clementine
+    video-downloader
+    yt-dlp
+    clementine
   ];
   
 }
