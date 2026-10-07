@@ -26,6 +26,7 @@ in
     ./nvim/nvf.nix
     ./nvim/dev_start.nix
     ../../vms/miku-ubuntu-mate/miku-mate1.nix
+    ./uv/uv.nix
   ];
 
   #xdg.portal = {
@@ -61,7 +62,6 @@ in
     vlc
     candy-icons
     sweet-folders
-    sweet
     papers
     evince
     libreoffice-still
