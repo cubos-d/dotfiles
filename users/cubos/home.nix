@@ -26,6 +26,7 @@ in
     ./nvim/nvf.nix
     ./nvim/dev_start.nix
     ../../vms/miku-ubuntu-mate/miku-mate1.nix
+    ./uv/uv.nix
   ];
 
   #xdg.portal = {
@@ -61,10 +62,9 @@ in
     vlc
     candy-icons
     sweet-folders
-    sweet
     papers
     evince
-    libreoffice-still
+    libreoffice-stable
     hunspellDicts.es_MX
     hunspellDicts.es_CO
     hunspellDicts.es_ES
@@ -79,11 +79,13 @@ in
     zip
     unzip
     _7zz
-    pkgs-unstable.noctalia
+    noctalia
     pluma
-    amberol
     planify
-    pkgs-unstable.opencode
+    #pkgs-unstable.opencode PROHIBITED UNTIL CONTAINERIZED
+    video-downloader
+    yt-dlp
+    clementine
   ];
   
 }

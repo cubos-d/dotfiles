@@ -2,9 +2,12 @@
 
 {
   # 1. Install uv system-wide
-  environment.systemPackages = [
-    pkgs.uv
-  ];
+  environment = {
+    localBinInPath = true;
+    systemPackages = [
+      pkgs.uv
+    ];
+  };
   systemd.tmpfiles.rules = [
     "L+ /usr/include - - - - ${pkgs.glibc.dev}/include"
   ];

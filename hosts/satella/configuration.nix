@@ -3,7 +3,11 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { pkgs, inputs, ... }:
-
+let
+  pkgs-unstable = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+  };
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -24,6 +28,7 @@
   boot.kernelParams = [
     "video=HDMI-A-1:e"
   ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "satella"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
@@ -64,7 +69,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.cubos = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "render" "ollama" "kvm" "qemu" "libvirtd"];
+    extraGroups = [ "wheel" "dialout" "networkmanager" "video" "render" "ollama" "kvm" "qemu" "libvirtd"];
     home = "/home/cubos";
   };
 
@@ -88,8 +93,8 @@
     rocmPackages.rocm-smi
     llvmPackages.openmp
     gnumake
-    rustc
-    cargo
+    pkgs-unstable.rustc
+    pkgs-unstable.cargo
     wl-clipboard
   ];
   

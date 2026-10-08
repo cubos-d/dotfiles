@@ -1,11 +1,22 @@
 { pkgs, ... }:
 
+let
+  themeName = "ChromeOS-Darker-Ultraviolet-Rounded";
+  chrome-os-dark = import ./custom-gtk-theme.nix { inherit pkgs; };
+in
 {
+  home.pointerCursor = {
+    enable = true;
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Amber";
+    size = 16;
+  };
   gtk = {
     enable = true;
     theme = {
-      name = "Sweet-Dark-v40"; 
-      package = pkgs.sweet;
+      name = themeName; 
+      package = chrome-os-dark;
     };
     iconTheme = {
       name = "Sweet-Yellow-Filled";
@@ -25,9 +36,13 @@
       gtk-application-prefer-dark-theme = 0;
     };
   };
+  
+  home.file.".local/share/themes/${themeName}" = {
+    source = "${chrome-os-dark}/share/themes/${themeName}";
+  };
 
   qt = {
     enable = true;
-    platformTheme.name = "gtk";
+    platformTheme.name = "gtk3";
   };
 }
