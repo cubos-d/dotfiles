@@ -1,10 +1,10 @@
 { pkgs, inputs, ... }:
 
-let
-  pkgs-unstable = import inputs.nixpkgs-unstable {
-    system = pkgs.stdenv.hostPlatform.system;
-  };
-in
+#let
+#  pkgs-unstable = import inputs.nixpkgs-unstable {
+#    system = pkgs.stdenv.hostPlatform.system;
+#  };
+#in
 {
   home.username = "cubos";
   home.homeDirectory = "/home/cubos";
