@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  themeName = "ChromeOS-Darker-Ultraviolet-Rounded";
+  themeName = "ChromeOS-Darker-UltraViolet-Rounded";
   chrome-os-dark = import ./custom-gtk-theme.nix { inherit pkgs; };
 in
 {
