@@ -1,11 +1,5 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
-let
-  pkgs-unstable = import inputs.nixpkgs-unstable {
-    system = pkgs.stdenv.hostPlatform.system;
-    #config.allowUnfree = true; # match your main config if needed
-  };
-in
 {
   boot.initrd.kernelModules = [ "amdgpu" ];
   # 1. Enable standard OpenCL/HIP hardware injection layers
@@ -25,14 +19,7 @@ in
   [
     "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
   ];
-  # 3. Enable Ollama service with ROCm/AMD acceleration
-  services.ollama = {
-    enable = true;
-    package = pkgs-unstable.ollama-rocm;
-    environmentVariables = {
-      HSA_OVERRIDE_GFX_VERSION = "10.3.0";
-    };
-  };
+  
   services.lact.enable = true;
   hardware.graphics = {
     ## radv: an open-source Vulkan driver from freedesktop
