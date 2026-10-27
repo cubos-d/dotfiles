@@ -31,6 +31,7 @@
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
+  hardware.firmware = [ pkgs.linux-firmware ];
   # Set your time zone.
   time.timeZone = "America/Bogota";
 
