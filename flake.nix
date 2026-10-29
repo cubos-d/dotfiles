@@ -14,9 +14,10 @@
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nix-cachyos-kernel, ... }@inputs: {
     nixosConfigurations = {
       # The target name matching your networking.hostName
       satella = nixpkgs.lib.nixosSystem {
