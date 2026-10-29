@@ -25,7 +25,8 @@
   boot.kernelParams = [
     "video=HDMI-A-1:e"
   ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_7_2;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "satella"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
