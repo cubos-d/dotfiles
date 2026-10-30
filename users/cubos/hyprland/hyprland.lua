@@ -20,6 +20,8 @@ hl.monitor({
     mode     = "preferred",
     position = "auto",
     scale    = "auto",
+    bitdepth = 8,
+    cm = "auto"
 })
 
 
@@ -122,7 +124,7 @@ hl.config({
 
         blur = {
             enabled   = true,
-            size      = 4, --3,
+            size      = 6, --3,
             passes    = 3, --2,
 	        new_optimizations = true,
             contrast = 1.5,

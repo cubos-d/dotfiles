@@ -3,17 +3,14 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { pkgs, inputs, ... }:
-let
-  pkgs-unstable = import inputs.nixpkgs-unstable {
-    system = pkgs.stdenv.hostPlatform.system;
-  };
-in
+
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./git.nix
       ./amdgpu.nix
+      ./ollama.nix
       ./uv.nix
       ./gc.nix
       ./printers.nix
@@ -28,12 +25,17 @@ in
   boot.kernelParams = [
     "video=HDMI-A-1:e"
   ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-lts;
+  #boot.kernelPackages = pkgs.linuxKernel.packages.linux_7_2;
+  #boot.kernelPackages = pkgs.linuxPackages;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "satella"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
+  hardware.firmware = [ pkgs.linux-firmware ];
   # Set your time zone.
   time.timeZone = "America/Bogota";
 
@@ -93,18 +95,25 @@ in
     rocmPackages.rocm-smi
     llvmPackages.openmp
     gnumake
-    pkgs-unstable.rustc
-    pkgs-unstable.cargo
+    rustc
+    cargo
     wl-clipboard
   ];
   
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-    # Required so non-root users are allowed to use the above substituter/keys.
-    # Use @wheel for all sudo users, or list your username explicitly.
+    substituters = [
+      "https://hyprland.cachix.org"
+      "https://cache.lantian.pub/lantian"
+    ];
+    trusted-substituters = [
+      "https://hyprland.cachix.org"
+      "https://cache.lantian.pub/lantian"
+    ];
+    trusted-public-keys = [
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="
+    ];
     trusted-users = ["root" "@wheel"];
   };
   # Some programs need SUID wrappers, can be configured further or are
