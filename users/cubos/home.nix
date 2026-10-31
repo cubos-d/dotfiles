@@ -86,6 +86,7 @@
     video-downloader
     yt-dlp
     clementine
+    nmap
   ];
   
 }
