@@ -98,6 +98,7 @@
     rustc
     cargo
     wl-clipboard
+    ncdu
   ];
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
