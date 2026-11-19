@@ -69,7 +69,7 @@
     hunspellDicts.es_CO
     hunspellDicts.es_ES
     hunspellDicts.en_US
-    gscan2pdf
+    #gscan2pdf
     remmina
     grim
     swappy

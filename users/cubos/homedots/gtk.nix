@@ -14,6 +14,7 @@ in
   };
   gtk = {
     enable = true;
+    gtk2.enable = false;
     theme = {
       name = themeName; 
       package = chrome-os-dark;
