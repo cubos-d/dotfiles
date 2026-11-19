@@ -62,7 +62,8 @@
 
 window {
   border-radius: 30px;
-  padding: 10px; }
+  padding: 10px; 
+  backdrop-filter: blur(20px);}
 
 .maximized window {
   border-radius: 0px;
